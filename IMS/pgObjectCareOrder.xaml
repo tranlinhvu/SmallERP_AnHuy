@@ -1,0 +1,286 @@
+﻿<Page x:Class="IMS.pgObjectCareSaleOrder"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:IMS"
+      mc:Ignorable="d" FontFamily="Times New Roman" 
+      d:DesignHeight="800" d:DesignWidth="1500"
+      Title="pgServiceDetail">
+
+    <!--Định nghĩa style-->
+    <Page.Resources>
+        <Style x:Key="SelectedTextBoxStyle" TargetType="{x:Type TextBox}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsFocused}" Value="True">
+                    <Setter Property="FocusManager.FocusedElement" 
+                Value="{Binding RelativeSource={RelativeSource Self}}" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="_ListBoxItemStyle" TargetType="ListViewItem">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListViewItem">
+                        <Border x:Name="_Border" Background="Transparent">
+                            <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="true">
+                                <Setter TargetName="_Border" Property="Background" Value="#9FB6A6"/>                                
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+    <Grid Background="Transparent">
+        <!--<Grid.RowDefinitions>
+            <RowDefinition Height="81*"/>
+            <RowDefinition Height="119*"/>
+        </Grid.RowDefinitions>-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4.5*" />
+            <ColumnDefinition Width="5.5*" />
+        </Grid.ColumnDefinitions>
+
+        <!--Pane customer-->
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+             <ToolBar Name="toolBar" Grid.Row="0" Background="#A2D4B0">
+                <DockPanel Width="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType={x:Type ToolBarPanel}}}">
+                    <DockPanel.Resources>
+                        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"></Style>
+                    </DockPanel.Resources>
+                    <TextBlock  Text="Khách hàng" FontSize="15" Foreground="Maroon" VerticalAlignment="Bottom" Margin="5,0,15,5" FontWeight="Normal"/>
+                    <Separator Foreground="Red"/>
+                    <Button Name="tbrAddCustomer" ToolTip="Thêm" VerticalAlignment="Bottom" Margin="0,0,15,0" Click="tbrAddCustomer_Click" >
+                        <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="18" Foreground="Maroon"/>
+                    </Button>
+                    <Button Name="tbrEditCustomer" ToolTip="Sửa chữa" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" Margin="0,0,35,0" Click="tbrEditCustomer_Click" >
+                        <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="18" Foreground="DarkGoldenrod"/>
+                    </Button>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">                       
+                        <TextBlock FontSize="16" Foreground="Maroon" VerticalAlignment="Bottom" Margin="5,0,0,0"/>
+                        <Button ToolTip="Nhập tên khách hàng" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom">
+                            <TextBox Name="txtCustomerName" Text="" Width ="150" FontSize="16" Foreground="Maroon" TextChanged="txtCustomerName_TextChanged" />
+                        </Button>
+                        <Button Name="tbrSearchCustomer" ToolTip="Tìm kiếm" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" Click="tbrSearchCustomer_Click" >
+                            <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="18" Foreground="Maroon"/>
+                        </Button>
+                        <Separator BorderThickness="2" Foreground="#9FB6A6" Height="28" Margin="0,2,0,0" VerticalAlignment="Top"/>
+                        <Button Name="tbrRefreshCustomer" ToolTip="Làm mới" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" Click="tbrRefreshCustomer_Click" >
+                            <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="18" Foreground="DarkGreen"/>
+                        </Button>
+                    </StackPanel>
+                </DockPanel>
+            </ToolBar>
+
+            <Grid Grid.Row="1" Margin="0,2,0,0" Background="SeaGreen">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="250" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock  Text="Id" Visibility="Collapsed" FontSize="15" FontWeight="Normal" Grid.Column="0" Grid.Row="0" Margin="15,5,5,0" />
+                <TextBlock  Text="STT" FontSize="15" FontWeight="Normal" Grid.Column="1" Grid.Row="0" Margin="15,5,5,0" />
+                <TextBlock  Text="Tên khách hàng" FontSize="15" FontWeight="Normal" Grid.Column="2" Grid.Row="0" Margin="15,5,5,0" />
+                <TextBlock  Text="Số điện thoại" FontSize="15" FontWeight="Normal" Grid.Column="3" Grid.Row="0" Margin="15,5,5,0" />
+            </Grid>
+
+            <ListView Name="lsViewCustomer" Grid.Row="2" ItemsSource="{Binding Service}"  AlternationCount="2" ItemContainerStyle="{DynamicResource _ListBoxItemStyle}" BorderThickness="1" SelectedIndex="0" SelectionChanged="lsViewCustomer_SelectionChanged" MouseDoubleClick="lsViewCustomer_MouseDoubleClick" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="50" />
+                                <ColumnDefinition Width="250" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="0"  Grid.Row="1" Visibility="Collapsed" Margin="15,5,0,0" Foreground="Blue" VerticalAlignment="Bottom" HorizontalAlignment="Left" TextAlignment="Left" FontSize = "15" Text="{Binding Id}" />
+                            <TextBlock Grid.Column="1"  Grid.Row="1" Margin="15,5,0,0" Foreground="Maroon" VerticalAlignment="Bottom" HorizontalAlignment="Left" TextAlignment="Right" FontSize = "15" Text="{Binding RowNumber}" />
+                            <TextBlock Grid.Column="2"  Grid.Row="1" Margin="15,5,0,0" Foreground="Maroon" VerticalAlignment="Bottom" HorizontalAlignment="Left" TextAlignment="Left" FontSize = "15" Text="{Binding Name}"/>
+                            <TextBlock Grid.Column="3"  Grid.Row="1" Margin="15,5,0,0" Foreground="Maroon" VerticalAlignment="Bottom" HorizontalAlignment="Left" TextAlignment="Left" FontSize = "15" Text="{Binding Phone}"/>
+                            <Button Name="btnRemoveCustomer" Background="Transparent" BorderThickness="0" Grid.Column="4" HorizontalAlignment="Left" Grid.Row="1" Margin="15,5,10,0" Foreground="DarkRed" VerticalAlignment="Bottom" FontSize = "15" FontFamily="Segoe MDL2 Assets" Content="" Click="btnRemoveCustomer_Click" />
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+
+        <!--Màn hình sửa chữa và các đợt sửa chữa-->
+        <Grid Grid.Column="1" Margin="0,0,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <!--sửa chữa-->
+            <Grid Grid.Row="0" Margin="15,0,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <ToolBar Name="toolBarService" Grid.Row="0">
+                    <DockPanel Width="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType={x:Type ToolBarPanel}}}">
+                        <DockPanel.Resources>
+                            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"></Style>
+                        </DockPanel.Resources>
+                        <TextBlock  Text="Sửa chữa" FontSize="15" Foreground="Maroon" VerticalAlignment="Bottom" Margin="5,0,15,5" FontWeight="Normal"/>
+                        <Separator Foreground="Red"/>
+                        <Button Name="tbrAddObjectCare" ToolTip="Thêm" VerticalAlignment="Bottom" Margin="0,0,15,0" Click="tbrAddObjectCare_Click" >
+                            <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="18" Foreground="Maroon"/>
+                        </Button>
+                        <Button Name="tbrEditObjectCare" ToolTip="Sửa chữa" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" Margin="0,0,35,0" Click="tbrEditObjectCare_Click" >
+                            <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="18" Foreground="DarkGoldenrod"/>
+                        </Button>
+
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                            <!--<TextBlock  Text="Tên sửa chữa" FontSize="16" Foreground="Maroon" VerticalAlignment="Bottom"/>
+                            <TextBox Text="" Width ="150" FontSize="16" Foreground="Maroon" VerticalAlignment="Bottom"/>                           
+                            <Button Name="tbrSearchObjectCare" ToolTip="Tìm kiếm" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" Click="tbrSearchObjectCare_Click" >
+                                <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="18" Foreground="Maroon"/>
+                            </Button>
+                            <Separator BorderThickness="2" Foreground="#9FB6A6"/>
+                            <Button Name="tbrRefreshObjectCare" ToolTip="Làm mới" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" Click="tbrRefreshObjectCare_Click" >
+                                <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="18" Foreground="DarkGreen"/>
+                            </Button>-->
+                        </StackPanel>
+                    </DockPanel>
+                </ToolBar>
+
+                <Grid Grid.Row="1" Margin="0,2,0,0" Background="SeaGreen">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50" />
+                        <ColumnDefinition Width="250" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock  Text="STT" FontSize="15" FontWeight="Normal" Grid.Column="0" Grid.Row="0" Margin="15,5,5,0" />
+                    <TextBlock  Text="Mã sửa chữa" FontSize="15" FontWeight="Normal" Grid.Column="1" Grid.Row="0" Margin="15,5,5,0" />
+                    <TextBlock  Text="Tên sửa chữa" FontSize="15" FontWeight="Normal" Grid.Column="2" Grid.Row="0" Margin="15,5,5,0"/>
+                </Grid>
+
+                <ListView Name="lsViewObjectCare" Grid.Row="2" ItemsSource="{Binding ServiceGroup}"  AlternationCount="2" ItemContainerStyle="{DynamicResource _ListBoxItemStyle}" BorderThickness="1" SelectedIndex="0" SelectionChanged="lsViewObjectCare_SelectionChanged" MouseDoubleClick="lsViewObjectCare_MouseDoubleClick" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="250" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Grid.Column="0"  Grid.Row="1" Visibility="Collapsed" Margin="15,5,0,0" Foreground="Blue" VerticalAlignment="Bottom" HorizontalAlignment="Left" TextAlignment="Left" FontSize = "15" Text="{Binding Id}" />
+                                <TextBlock Grid.Column="1"  Grid.Row="1" Margin="15,5,0,0" Foreground="Maroon" VerticalAlignment="Bottom" HorizontalAlignment="Left" Visibility="Visible" TextAlignment="Left" FontSize = "15" Text="{Binding RowNumber}"/>
+                                <TextBlock Grid.Column="2"  Grid.Row="1" Margin="15,5,0,0" Foreground="Maroon" VerticalAlignment="Bottom" HorizontalAlignment="Left" Visibility="Visible" TextAlignment="Left" FontSize = "15" Text="{Binding Code}"/>
+                                <TextBlock Grid.Column="3"  Grid.Row="1" Margin="15,5,0,0" Foreground="Maroon" VerticalAlignment="Bottom" HorizontalAlignment="Left" Visibility="Visible" TextAlignment="Left" FontSize = "15" Text="{Binding Name}"/>
+                                <Button Name="btnRemoveObjectCare" Background="Transparent" BorderThickness="0" Grid.Column="4" HorizontalAlignment="Left" Grid.Row="1" Margin="15,5,10,0" Foreground="DarkRed" VerticalAlignment="Bottom" FontSize = "15" FontFamily="Segoe MDL2 Assets" Content="" Click="btnRemoveObjectCare_Click" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+
+            <!--Đợt sửa  chữa-->
+            <Grid Grid.Row="1" Margin="15,30,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <ToolBar Name="toolBarService1" Grid.Row="0">
+                    <DockPanel Width="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType={x:Type ToolBarPanel}}}">
+                        <DockPanel.Resources>
+                            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"></Style>
+                        </DockPanel.Resources>
+                        <TextBlock  Text="Đợt sửa  chữa" FontSize="15" Foreground="Maroon" VerticalAlignment="Bottom" Margin="5,0,15,5" FontWeight="Normal"/>
+                        <Separator Foreground="Red"/>
+                        <Button Name="tbrAddObjectCareDetail" ToolTip="Thêm" VerticalAlignment="Bottom" Margin="0,0,15,0" Click="tbrAddObjectCareDetail_Click" >
+                            <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="18" Foreground="Maroon"/>
+                        </Button>
+                        <Button Name="tbrEditObjectCareDetail" ToolTip="Sửa chữa" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" Margin="0,0,35,0" Click="tbrEditObjectCareDetail_Click" >
+                            <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="18" Foreground="DarkGoldenrod"/>
+                        </Button>
+
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Height="43" Margin="0,0,0,-0.333" VerticalAlignment="Top">                            
+                            <!--<TextBlock  Text="Tên công đoạn" FontSize="16" Foreground="Maroon"/>                            
+                            <TextBox Text="" Width ="150" FontSize="16" Foreground="Maroon"/>-->
+                            <!--<Button Name="tbrObjectCaring" ToolTip="Sửa chữa" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" Click="tbrObjectCaring_Click" >                                
+                                <Image Source="Assets/objectcaring.png"/>
+                            </Button>-->
+                            <!--<Separator BorderThickness="2" Foreground="#9FB6A6"/>
+                            <Button Name="tbrRefreshObjectCareDetail" ToolTip="Clear" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" Click="tbrRefreshObjectCareDetail_Click" >
+                                <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="18" Foreground="DarkGreen"/>
+                            </Button>-->
+                        </StackPanel>
+                    </DockPanel>
+                </ToolBar>
+
+                <Grid Grid.Row="1" Margin="0,2,0,0" Background="SeaGreen">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50" />
+                        <ColumnDefinition Width="180" />
+                        <ColumnDefinition Width="200" />
+                        <ColumnDefinition Width="200" />                        
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock  Text="STT" FontSize="15" FontWeight="Normal" Grid.Column="0" Grid.Row="0" Margin="15,5,5,0" />
+                    <TextBlock  Text="Mã đợt sửa chữa" FontSize="15" FontWeight="Normal" Grid.Column="1" Grid.Row="0" Margin="15,5,5,0" />
+                    <TextBlock  Text="Tên đợt sửa chữa" FontSize="15" FontWeight="Normal" Grid.Column="2" Grid.Row="0" Margin="15,5,5,0" />
+                    <TextBlock  Text="Kỹ sư" FontSize="15" FontWeight="Normal" Grid.Column="3" Grid.Row="0" Margin="15,5,5,0" />
+                    <!--<TextBlock  Text="Phụ tá" FontSize="15" FontWeight="Normal" Grid.Column="4" Grid.Row="0" Margin="15,5,5,0"/>-->
+                    <TextBlock  Text="Đã xong" FontSize="15" FontWeight="Normal" Grid.Column="4" Grid.Row="0" Margin="15,5,5,0"/>
+                </Grid>
+
+                <ListView Name="lsViewObjectCareDetail" Grid.Row="2" ItemsSource="{Binding ServiceGroup}"  AlternationCount="2" ItemContainerStyle="{DynamicResource _ListBoxItemStyle}" BorderThickness="1" SelectedIndex="0" SelectionChanged="lsViewObjectCareDetail_SelectionChanged" MouseDoubleClick="lsViewObjectCareDetail_MouseDoubleClick" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="180" />
+                                    <ColumnDefinition Width="200" />                                   
+                                    <ColumnDefinition Width="200" />                                   
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Grid.Column="0"  Grid.Row="1" Visibility="Collapsed" Margin="15,5,0,0" Foreground="Blue" VerticalAlignment="Bottom" HorizontalAlignment="Left" TextAlignment="Left" FontSize = "15" Text="{Binding Id}" />
+                                <TextBlock Grid.Column="1"  Grid.Row="1" Margin="15,5,0,0" Foreground="Maroon" VerticalAlignment="Bottom" HorizontalAlignment="Left" Visibility="Visible" TextAlignment="Left" FontSize = "15" Text="{Binding RowNumber}"/>
+                                <TextBlock Grid.Column="2"  Grid.Row="1" Margin="15,5,0,0" Foreground="Maroon" VerticalAlignment="Bottom" HorizontalAlignment="Left" Visibility="Visible" TextAlignment="Left" FontSize = "15" Text="{Binding Code}"/>
+                                <TextBlock Grid.Column="3"  Grid.Row="1" Margin="15,5,0,0" Foreground="Maroon" VerticalAlignment="Bottom" HorizontalAlignment="Left" Visibility="Visible" TextAlignment="Left" FontSize = "15" Text="{Binding Name}"/>
+                                <TextBlock Grid.Column="4"  Grid.Row="1" Margin="15,5,0,0" Foreground="Maroon" VerticalAlignment="Bottom" HorizontalAlignment="Left" Visibility="Visible" TextAlignment="Left" FontSize = "15" Text="{Binding CarePersonName}"/>
+                                <!--<TextBlock Grid.Column="5"  Grid.Row="1" Margin="15,5,0,0" Foreground="Maroon" VerticalAlignment="Bottom" HorizontalAlignment="Left" Visibility="Visible" TextAlignment="Left" FontSize = "15" Text="{Binding AssistanceName}"/>-->
+                                <CheckBox Grid.Column="5"  Grid.Row="1" Margin="15,5,0,0" Foreground="Maroon" VerticalAlignment="Bottom" HorizontalAlignment="Left" Visibility="Visible" FontSize = "15" IsChecked="{Binding IsDone}" IsEnabled="False"/>
+                                <Button Name="btnRemoveObjectCareDetail" Background="Transparent" BorderThickness="0" Grid.Column="6" HorizontalAlignment="Left" Grid.Row="1" Margin="15,5,10,0" Foreground="DarkRed" VerticalAlignment="Bottom" FontSize = "15" FontFamily="Segoe MDL2 Assets" Content="" Click="btnRemoveObjectCareDetail_Click" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+            
+        </Grid>
+        
+    </Grid>
+</Page>

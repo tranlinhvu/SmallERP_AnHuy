@@ -1,0 +1,41 @@
+﻿<Window x:Class="IMS.View.frmAddPurchase"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IMS.View"
+        mc:Ignorable="d" FontFamily="Times New Roman"
+        Title="IMS - Chọn số lượng và đơn giá" Height="200" Width="450">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="7*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.5*" />
+                <RowDefinition Height="0.5*" />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Column="0" Grid.Row="0" Text="Đơn giá (*):" HorizontalAlignment="Left" FontSize="18" VerticalAlignment="Bottom" Margin="0,0,0,0"/>
+            <TextBox Name="txtPrice" Grid.Column="1" Grid.Row="0" Margin="0,15,0,0" FontSize="18" VerticalContentAlignment="Bottom" KeyDown="txtPrice_KeyDown" />
+            <TextBlock Grid.Column="0" Grid.Row="1" Text="Số lượng(*):" HorizontalAlignment="Left" FontSize="18" VerticalAlignment="Bottom" Margin="0,0,0,0"/>
+            <TextBox Name="txtQuantity" Grid.Column="1" Grid.Row="1" Margin="0,15,0,0" FontSize="18" VerticalContentAlignment="Bottom" KeyDown="txtQuantity_KeyDown" />
+
+
+        </Grid>
+
+        <Grid Grid.Row="1" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="80" />
+            </Grid.ColumnDefinitions>
+            <Button Name="btnSave" Grid.Column="0" Content="Lưu (F2)" Width ="100" HorizontalAlignment="Right" Margin="0,0,15,0" Click="btnSave_Click" />
+            <Button Name="btnCancel" Grid.Column ="1" Content="Hủy" Width ="80" HorizontalAlignment="Right" Click="btnCancel_Click" ></Button>
+        </Grid>
+    </Grid>
+</Window>

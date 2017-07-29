@@ -1,0 +1,11 @@
+﻿<Window x:Class="IMS.Report.frmIORReportViewWPFy"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
+        Title="IMS - Báo cáo mua hàng" Height="300" Width="300" WindowState="Maximized">
+    <Grid>
+        <WindowsFormsHost>
+            <rv:ReportViewer x:Name="_reportViewer"/>
+        </WindowsFormsHost>
+    </Grid>
+</Window>

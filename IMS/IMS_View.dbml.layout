@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 13.75" name="IMS_View">
+  <DataContextMoniker Name="/IMS_ViewDataContext" />
+  <nestedChildShapes>
+    <classShape Id="273c1028-878f-452d-8211-e5199febf400" absoluteBounds="1.25, 4.875, 2, 2.9247054036458331">
+      <DataClassMoniker Name="/IMS_ViewDataContext/InventoryInputItem1" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a721cebb-5863-4957-8123-3cd84cb29f71" absoluteBounds="1.2649999999999997, 5.335, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2a331360-9460-467e-a811-3b332fb375c6" absoluteBounds="6.25, 0.5, 2, 3.1170068359375">
+      <DataClassMoniker Name="/IMS_ViewDataContext/InventoryInputItemView1" />
+      <nestedChildShapes>
+        <elementListCompartment Id="30714ddd-3dfb-476f-adbd-213e7faeec72" absoluteBounds="6.265, 0.96, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6435fe61-7833-48c1-ac70-3dd54dca7897" absoluteBounds="3.5, 4.875, 2, 5.2323225911458326">
+      <DataClassMoniker Name="/IMS_ViewDataContext/InventoryView1" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1b4c3d09-2635-48e1-87a4-1d679a4765ca" absoluteBounds="3.5149999999999997, 5.335, 1.9700000000000002, 4.672322591145833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5a611ba4-0407-4856-8670-04b58ae2f7e5" absoluteBounds="6.125, 4, 2.875, 1.9631982421875">
+      <DataClassMoniker Name="/IMS_ViewDataContext/InventoryInputItemGroupView" />
+      <nestedChildShapes>
+        <elementListCompartment Id="62021f20-57d4-4942-b992-c5a479876b81" absoluteBounds="6.14, 4.46, 2.8449999999999998, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="69df10e0-4a35-4ec2-a39c-36d61f09a256" absoluteBounds="1, 8, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/IMS_ViewDataContext/ProductCustomerCreditLimitView" />
+      <nestedChildShapes>
+        <elementListCompartment Id="65e05fb3-ca13-4092-90de-19569d860afd" absoluteBounds="1.0150000000000006, 8.46, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d0761970-4330-4da4-81f1-7eeb37ab6b1a" absoluteBounds="3.75, 0.5, 2, 4.2708154296875">
+      <DataClassMoniker Name="/IMS_ViewDataContext/ProductView1" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0608f38d-e743-421e-85f1-59ddae9c9add" absoluteBounds="3.7649999999999997, 0.96, 1.9700000000000002, 3.7108154296875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="28fd3f1a-38bf-430e-b35c-e12107fa00eb" absoluteBounds="0.75, 0.5, 2, 4.2708154296875">
+      <DataClassMoniker Name="/IMS_ViewDataContext/Product1" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b75b2c70-d360-45d6-ab00-e1b5a137f635" absoluteBounds="0.76500000000000012, 0.96, 1.9700000000000002, 3.7108154296875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b794f91e-f0c2-4ccd-baf3-f46961894ea4" absoluteBounds="2.625, 10.25, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/IMS_ViewDataContext/ProductPurchaseView1" />
+      <nestedChildShapes>
+        <elementListCompartment Id="68cf4f0b-cc5f-4adb-a5ad-1656c7de0623" absoluteBounds="2.6399999999999997, 10.71, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8b186436-a5e1-4d4d-8672-1770a0b429d5" absoluteBounds="0.5, 11.75, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/IMS_ViewDataContext/CustomerCreditLimitView" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c0804054-7089-418f-838c-4ae2510a97f7" absoluteBounds="0.515, 12.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="58e1fce9-3643-4771-a72d-c34fa013da1a" absoluteBounds="6.5, 6.25, 2, 4.4631168619791666">
+      <DataClassMoniker Name="/IMS_ViewDataContext/ProductSaleView1" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d38c9ffd-e170-470b-8535-867c883e1a7a" absoluteBounds="6.515, 6.7100000000000009, 1.9700000000000002, 3.903116861979167" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

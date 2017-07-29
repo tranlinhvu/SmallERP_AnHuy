@@ -1,0 +1,39 @@
+﻿<Window x:Class="IMS.View.frmAbout"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IMS.View" ResizeMode="CanMinimize"
+        mc:Ignorable="d" FontFamily="Times New Roman" WindowStartupLocation="CenterScreen"
+       Title="IMS - Thông tin giải pháp phần mềm" Height="300" Width="650" Background="SeaGreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="AUTO" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Name="imsInfo" Grid.Row="0" Margin="15, 10, 0,0">
+            <TextBlock Text="Phần mềm quản lý kho IMS" FontSize="32" Foreground="Maroon"/>
+            <TextBlock Text="Phiên bản 1.0" FontSize="16" Foreground="Chocolate"/>            
+        </StackPanel>
+
+        <Grid Name="splCompany" Grid.Row="1" Margin="10" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="AUTO" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Image Source="/Assets/tgmv.png" Grid.Column="0" Margin="5, 10, 0,0" Height="80" Width="80"/>
+            <StackPanel Name="splCompany2" Grid.Column="1" Margin="5, 10, 0,0">
+                <TextBlock Text="CÔNG TY GIẢI PHÁP CÔNG NGHỆ 179" FontSize="16" Foreground="LightGoldenrodYellow"/>
+                <TextBlock Foreground="LightGoldenrodYellow" Text="Địa chỉ: 01 Thi Sách, P.Bến Nghé, Q.1, TP. HCM  " FontSize="15"/>
+                <TextBlock Foreground="LightGoldenrodYellow" Text="Tel: (+84)869360253" FontSize="15"/>
+
+                <TextBlock FontSize="15" >
+                    <Hyperlink Foreground="LightGoldenrodYellow" NavigateUri="http://congnghe179.com " RequestNavigate="Hyperlink_RequestNavigate">
+                        http://congnghe179.com
+                    </Hyperlink>
+                </TextBlock>
+                <TextBlock Foreground="LightGoldenrodYellow" Text="Hỗ trợ: 0989522879  " FontSize="15"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

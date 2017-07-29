@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="SmallERPDataSet" targetNamespace="http://tempuri.org/SmallERPDataSet.xsd" xmlns:mstns="http://tempuri.org/SmallERPDataSet.xsd" xmlns="http://tempuri.org/SmallERPDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="SmallERPConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="SmallERPConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.IMS.Properties.Settings.GlobalReference.Default.SmallERPConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ObjectCareDetailViewTableAdapter" GeneratorDataComponentClassName="ObjectCareDetailViewTableAdapter" Name="ObjectCareDetailView" UserDataComponentName="ObjectCareDetailViewTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SmallERPConnectionString (Settings)" DbObjectName="SmallERP.dbo.ObjectCareDetailView" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Code, Name, CreatedDate, CareDate, NextCareDate, StaffName, CarePersonName, AssistanceName, IsDone, Amount, Discount, Payment, IdObjectCare, IdCarePerson, IdAssistance, CustomerName, Id, ProductAmount, ServiceAmount, CareAmount, Balance FROM dbo.ObjectCareDetailView</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Code" DataSetColumn="Code" />
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="CreatedDate" DataSetColumn="CreatedDate" />
+              <Mapping SourceColumn="CareDate" DataSetColumn="CareDate" />
+              <Mapping SourceColumn="NextCareDate" DataSetColumn="NextCareDate" />
+              <Mapping SourceColumn="StaffName" DataSetColumn="StaffName" />
+              <Mapping SourceColumn="CarePersonName" DataSetColumn="CarePersonName" />
+              <Mapping SourceColumn="AssistanceName" DataSetColumn="AssistanceName" />
+              <Mapping SourceColumn="IsDone" DataSetColumn="IsDone" />
+              <Mapping SourceColumn="Amount" DataSetColumn="Amount" />
+              <Mapping SourceColumn="Discount" DataSetColumn="Discount" />
+              <Mapping SourceColumn="Payment" DataSetColumn="Payment" />
+              <Mapping SourceColumn="IdObjectCare" DataSetColumn="IdObjectCare" />
+              <Mapping SourceColumn="IdCarePerson" DataSetColumn="IdCarePerson" />
+              <Mapping SourceColumn="IdAssistance" DataSetColumn="IdAssistance" />
+              <Mapping SourceColumn="CustomerName" DataSetColumn="CustomerName" />
+              <Mapping SourceColumn="Id" DataSetColumn="Id" />
+              <Mapping SourceColumn="ProductAmount" DataSetColumn="ProductAmount" />
+              <Mapping SourceColumn="ServiceAmount" DataSetColumn="ServiceAmount" />
+              <Mapping SourceColumn="CareAmount" DataSetColumn="CareAmount" />
+              <Mapping SourceColumn="Balance" DataSetColumn="Balance" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="SmallERPDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="SmallERPDataSet" msprop:Generator_UserDSName="SmallERPDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ObjectCareDetailView" msprop:Generator_TableClassName="ObjectCareDetailViewDataTable" msprop:Generator_TableVarName="tableObjectCareDetailView" msprop:Generator_RowChangedName="ObjectCareDetailViewRowChanged" msprop:Generator_TablePropName="ObjectCareDetailView" msprop:Generator_RowDeletingName="ObjectCareDetailViewRowDeleting" msprop:Generator_RowChangingName="ObjectCareDetailViewRowChanging" msprop:Generator_RowEvHandlerName="ObjectCareDetailViewRowChangeEventHandler" msprop:Generator_RowDeletedName="ObjectCareDetailViewRowDeleted" msprop:Generator_RowClassName="ObjectCareDetailViewRow" msprop:Generator_UserTableName="ObjectCareDetailView" msprop:Generator_RowEvArgName="ObjectCareDetailViewRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Code" msprop:Generator_ColumnVarNameInTable="columnCode" msprop:Generator_ColumnPropNameInRow="Code" msprop:Generator_ColumnPropNameInTable="CodeColumn" msprop:Generator_UserColumnName="Code">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CreatedDate" msprop:Generator_ColumnVarNameInTable="columnCreatedDate" msprop:Generator_ColumnPropNameInRow="CreatedDate" msprop:Generator_ColumnPropNameInTable="CreatedDateColumn" msprop:Generator_UserColumnName="CreatedDate">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CareDate" msprop:Generator_ColumnVarNameInTable="columnCareDate" msprop:Generator_ColumnPropNameInRow="CareDate" msprop:Generator_ColumnPropNameInTable="CareDateColumn" msprop:Generator_UserColumnName="CareDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NextCareDate" msprop:Generator_ColumnVarNameInTable="columnNextCareDate" msprop:Generator_ColumnPropNameInRow="NextCareDate" msprop:Generator_ColumnPropNameInTable="NextCareDateColumn" msprop:Generator_UserColumnName="NextCareDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="StaffName" msprop:Generator_ColumnVarNameInTable="columnStaffName" msprop:Generator_ColumnPropNameInRow="StaffName" msprop:Generator_ColumnPropNameInTable="StaffNameColumn" msprop:Generator_UserColumnName="StaffName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CarePersonName" msprop:Generator_ColumnVarNameInTable="columnCarePersonName" msprop:Generator_ColumnPropNameInRow="CarePersonName" msprop:Generator_ColumnPropNameInTable="CarePersonNameColumn" msprop:Generator_UserColumnName="CarePersonName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AssistanceName" msprop:Generator_ColumnVarNameInTable="columnAssistanceName" msprop:Generator_ColumnPropNameInRow="AssistanceName" msprop:Generator_ColumnPropNameInTable="AssistanceNameColumn" msprop:Generator_UserColumnName="AssistanceName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IsDone" msprop:Generator_ColumnVarNameInTable="columnIsDone" msprop:Generator_ColumnPropNameInRow="IsDone" msprop:Generator_ColumnPropNameInTable="IsDoneColumn" msprop:Generator_UserColumnName="IsDone" type="xs:boolean" />
+              <xs:element name="Amount" msprop:Generator_ColumnVarNameInTable="columnAmount" msprop:Generator_ColumnPropNameInRow="Amount" msprop:Generator_ColumnPropNameInTable="AmountColumn" msprop:Generator_UserColumnName="Amount" type="xs:int" minOccurs="0" />
+              <xs:element name="Discount" msprop:Generator_ColumnVarNameInTable="columnDiscount" msprop:Generator_ColumnPropNameInRow="Discount" msprop:Generator_ColumnPropNameInTable="DiscountColumn" msprop:Generator_UserColumnName="Discount" type="xs:int" minOccurs="0" />
+              <xs:element name="Payment" msprop:Generator_ColumnVarNameInTable="columnPayment" msprop:Generator_ColumnPropNameInRow="Payment" msprop:Generator_ColumnPropNameInTable="PaymentColumn" msprop:Generator_UserColumnName="Payment" type="xs:int" minOccurs="0" />
+              <xs:element name="IdObjectCare" msprop:Generator_ColumnVarNameInTable="columnIdObjectCare" msprop:Generator_ColumnPropNameInRow="IdObjectCare" msprop:Generator_ColumnPropNameInTable="IdObjectCareColumn" msprop:Generator_UserColumnName="IdObjectCare" type="xs:int" />
+              <xs:element name="IdCarePerson" msprop:Generator_ColumnVarNameInTable="columnIdCarePerson" msprop:Generator_ColumnPropNameInRow="IdCarePerson" msprop:Generator_ColumnPropNameInTable="IdCarePersonColumn" msprop:Generator_UserColumnName="IdCarePerson" type="xs:int" />
+              <xs:element name="IdAssistance" msprop:Generator_ColumnVarNameInTable="columnIdAssistance" msprop:Generator_ColumnPropNameInRow="IdAssistance" msprop:Generator_ColumnPropNameInTable="IdAssistanceColumn" msprop:Generator_UserColumnName="IdAssistance" type="xs:int" minOccurs="0" />
+              <xs:element name="CustomerName" msprop:Generator_ColumnVarNameInTable="columnCustomerName" msprop:Generator_ColumnPropNameInRow="CustomerName" msprop:Generator_ColumnPropNameInTable="CustomerNameColumn" msprop:Generator_UserColumnName="CustomerName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
+              <xs:element name="ProductAmount" msprop:Generator_ColumnVarNameInTable="columnProductAmount" msprop:Generator_ColumnPropNameInRow="ProductAmount" msprop:Generator_ColumnPropNameInTable="ProductAmountColumn" msprop:Generator_UserColumnName="ProductAmount" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ServiceAmount" msprop:Generator_ColumnVarNameInTable="columnServiceAmount" msprop:Generator_ColumnPropNameInRow="ServiceAmount" msprop:Generator_ColumnPropNameInTable="ServiceAmountColumn" msprop:Generator_UserColumnName="ServiceAmount" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CareAmount" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCareAmount" msprop:Generator_ColumnPropNameInRow="CareAmount" msprop:Generator_ColumnPropNameInTable="CareAmountColumn" msprop:Generator_UserColumnName="CareAmount" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Balance" msprop:Generator_ColumnVarNameInTable="columnBalance" msprop:Generator_ColumnPropNameInRow="Balance" msprop:Generator_ColumnPropNameInTable="BalanceColumn" msprop:Generator_UserColumnName="Balance" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ObjectCareDetailView" />
+      <xs:field xpath="mstns:Id" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SmallERP_SDIVINA" Class="IMS_ViewDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=TV\SQLTLV;Initial Catalog=SmallERP;User ID=sa;Encrypt=False;TrustServerCertificate=True" SettingsObjectName="IMS.Properties.Settings" SettingsPropertyName="SmallERPConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.InventoryInputItem" Member="InventoryInputItem1s">
+    <Type Name="InventoryInputItem1">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DiffNo" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CodeEx" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Barcode" Type="System.Data.Linq.Binary" DbType="Binary(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Expiry" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ExpiryEx" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="LottNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PriceIn" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="IdProductPurchase" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.InventoryInputItemView" Member="InventoryInputItemView1s">
+    <Type Name="InventoryInputItemView1">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="DiffNo" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CodeEx" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Barcode" Type="System.Data.Linq.Binary" DbType="Binary(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Expiry" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ExpiryEx" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="LottNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="PriceIn" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IdProductPurchase" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.InventoryView1" Member="InventoryView1s">
+    <Type Name="InventoryView1">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="DiffNo" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CodeEx" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Expiry" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ExpiryEx" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="LottNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CreatedDateEx" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="PriceIn" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="PriceOut" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="IdInvoice" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IdInvoiceOut" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IdInventoryStorage" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsOutput" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsGiven" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="StockLimit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ExpiryLimit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdProductKind" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="KindName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ManufactureName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="StorageName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.InventoryInputItemGroupView" Member="InventoryInputItemGroupViews">
+    <Type Name="InventoryInputItemGroupView">
+      <Column Name="Code" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PriceIn" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IdProductPurchase" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UnitName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductCustomerCreditLimitView" Member="ProductCustomerCreditLimitViews">
+    <Type Name="ProductCustomerCreditLimitView">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="ManufactureName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ProductKindName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdCustomer" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductView" Member="ProductView1s">
+    <Type Name="ProductView1">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="PriceIn" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="PriceOut" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="UnitName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="GroupName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ManufactureName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IdProductKind" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ProductKindName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ProductColorName" Type="System.String" DbType="NVarChar(54)" CanBeNull="true" />
+      <Column Name="RefNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ExpiryRule" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LottNoRule" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="StockLimit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ExpiryLimit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RefNoLenth" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsBOM" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Product" Member="Product1s">
+    <Type Name="Product1">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="RefNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RefNoLenth" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PriceIn" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="PriceOut" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="IdUnit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdProductColor" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdProductKind" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdGroup" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdManufacture" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="InventoryType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ExpiryRule" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LottNoRule" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="StockLimit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ExpiryLimit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsBOM" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductPurchaseView" Member="ProductPurchaseView1s">
+    <Type Name="ProductPurchaseView1">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="InvoiceNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CreatedDateEx" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="InvoiceDate" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="InvoiceDateEx" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="VendorName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Amount" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Discount" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Payment" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDone" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Kind" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CustomerName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CustomerCreditLimitView" Member="CustomerCreditLimitViews">
+    <Type Name="CustomerCreditLimitView">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="IdCustomer" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="IdProductKind" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Kind" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductSaleView" Member="ProductSaleView1s">
+    <Type Name="ProductSaleView1">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="InvoiceNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CreatedDateEx" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="InvoiceDateEx" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IdStaff" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Discount" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Payment" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="IsDone" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="CustomerName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="InvoiceDate" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IdStaffSale" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsGiven" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Kind" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="StaffName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Notes" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="VendorName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

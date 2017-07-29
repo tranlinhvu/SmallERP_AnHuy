@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SmallERP_HuongTrinh" Class="IMS_TableDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-CEFGNA7\SQLEXPRESS;Initial Catalog=SmallERP_HuongTrinh;User ID=sa;Encrypt=False;TrustServerCertificate=True" SettingsObjectName="IMS.Properties.Settings" SettingsPropertyName="SmallERPConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.InventoryStorage" Member="InventoryStorage1s">
+    <Type Name="InventoryStorage1">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="IsGiven" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductSale" Member="ProductSale1s">
+    <Type Name="ProductSale1">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="InvoiceNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DiffNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CreatedDateEx" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="InvoiceDate" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="InvoiceDateEx" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IdStaff" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IdStaffSale" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IdCustomer" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Tax" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Discount" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Payment" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="IsDone" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IdBranch" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsGiven" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Kind" Type="System.String" DbType="NVarChar(258)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BOM" Member="BOMs">
+    <Type Name="BOM">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdEx" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IdProductMain" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="IdProductSub" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_BOM_Extract" Member="View_BOM_Extracts">
+    <Type Name="View_BOM_Extract">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="IdEx" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IdProductMain" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="IdProductSub" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IsBOM" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_BOM_No_Extract" Member="View_BOM_No_Extracts">
+    <Type Name="View_BOM_No_Extract">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="IdEx" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IdProductMain" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="IdProductSub" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IsBOM" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductPurchase" Member="ProductPurchase1s">
+    <Type Name="ProductPurchase1">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="InvoiceNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DiffNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CreatedDateEx" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="InvoiceDate" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="InvoiceDateEx" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IdStaff" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IdVendor" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Amount" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Discount" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Payment" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IsDone" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IdBranch" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Kind" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IdCustomer" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductKind" Member="ProductKinds">
+    <Type Name="ProductKind">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="IsColorDiff" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SmallERP_HuongTrinh" Class="IMS_ReportDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-CEFGNA7\SQLEXPRESS;Initial Catalog=SmallERP_HuongTrinh;User ID=sa;Encrypt=False;TrustServerCertificate=True" SettingsObjectName="IMS.Properties.Settings" SettingsPropertyName="SmallERPConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.View_IOR" Member="View_IORs">
+    <Type Name="View_IOR">
+      <Column Name="Code" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ProductName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Available" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="QuantityIn" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="QuantityOut" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="RollNoIn" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RollNoOut" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_IOR_Kind" Member="View_IOR_Kinds">
+    <Type Name="View_IOR_Kind">
+      <Column Name="Code" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="KindName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Available" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="QuantityIn" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="QuantityOut" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="RollNoIn" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RollNoOut" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

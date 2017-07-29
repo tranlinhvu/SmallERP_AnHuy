@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="IMS.UserControls.ClosableHeader"            
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" FontFamily="Times New Roman" 
+      d:DesignHeight="29" d:DesignWidth="81" Margin="0">
+    <Grid>
+        <Button Content="X"  Height="29" HorizontalAlignment="Left" Margin="0,0,0,5" 
+          Name="btnClose" VerticalAlignment="Top" Width="20" FontFamily="Courier" 
+          FontWeight="Normal" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" 
+          FontStretch="Normal" Visibility="Visible" 
+          FontSize="16" Padding="0" ToolTip="Close" Foreground="Maroon"/>
+        <Label Content="TabItem"  Height="29" HorizontalAlignment="Left" 
+          Margin="5,2,0,0" Name="label_TabTitle" VerticalAlignment="Top" 
+          FontFamily="Courier" FontSize="16" />
+    </Grid>
+</UserControl>
+

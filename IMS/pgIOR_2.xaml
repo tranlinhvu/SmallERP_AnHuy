@@ -1,0 +1,133 @@
+﻿<Window x:Class="IMS.pgIOR_2"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:IMS"
+      mc:Ignorable="d" FontFamily="Times New Roman" 
+      d:DesignHeight="600" d:DesignWidth="1500" Background="White" WindowState="Maximized"
+      Title="IMS - Nhập xuất tồn">
+
+    <!--Khai báo resource-->
+    <Window.Resources>
+        <Style x:Key="SelectedTextBoxStyle" TargetType="{x:Type TextBox}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsFocused}" Value="True">
+                    <Setter Property="FocusManager.FocusedElement" 
+                Value="{Binding RelativeSource={RelativeSource Self}}" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="_ListBoxItemStyle" TargetType="ListViewItem">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListViewItem">
+                        <Border x:Name="_Border" Background="Transparent">
+                            <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="true">
+                                <Setter TargetName="_Border" Property="Background" Value="LightBlue"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <!--Tạo 1 grid gồm 4 hàng: 0: Thanh công cụ, 1: Vùng nhập dữ liệu, 2: Vùng header cho listview bên dưới 3: Vùng Listview hiển thị dữ liệu-->
+    <Grid Name="grdProduct">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="3" Background="White" HorizontalAlignment="Left" Margin="5,10,50,10">
+            <TextBlock Text="Tổng lượng hàng nhập" FontSize="15" Foreground="Maroon"/>
+            <TextBlock Text="10" FontSize="18" Foreground="DarkBlue" FontWeight="Bold"/>
+            <TextBlock Text="Tổng lượng hàng xuất" FontSize="15" Foreground="Maroon"/>
+            <TextBlock Text="5" FontSize="18" Foreground="DarkBlue" FontWeight="Bold"/>
+            <TextBlock Text="Tổng tồn kho" FontSize="15" Foreground="Maroon"/>
+            <TextBlock Text="5" FontSize="18" Foreground="DarkBlue" FontWeight="Bold"/>
+        </StackPanel>
+        <ToolBar Name="toolBar" Grid.Row="0" Background="#FFA2D4B0" Visibility="Collapsed">
+            <DockPanel Width="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType={x:Type ToolBarPanel}}}">
+                <DockPanel.Resources>
+                    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"></Style>
+                </DockPanel.Resources>
+                <TextBlock Text="Nhập xuất tồn" FontSize="18" VerticalAlignment="Bottom" Foreground="DarkBlue" FontWeight="Bold"/>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <!--<TextBlock Text="Loại hàng" FontSize="15" Foreground="Maroon" VerticalAlignment="Bottom" Margin="20,0,0,0" FontWeight="Normal"/>
+                    <ComboBox Name="cmbProductKind" FontSize="15" Foreground="Maroon" VerticalAlignment="Bottom" Margin="5,0,10,0" Width="150" FontWeight="Normal" SelectionChanged="cmbProductKind_SelectionChanged"/>-->
+                    <!--<TextBlock Foreground="LightGoldenrodYellow" Text="Màu sắc" FontSize="15" Foreground="Maroon" VerticalAlignment="Bottom" Margin="20,0,0,0" FontWeight="Normal"/>-->
+                    <!--<ComboBox Name="cmbProductColor" FontSize="15" Foreground="Maroon" VerticalAlignment="Bottom" Margin="5,0,10,0" Width="150" FontWeight="Normal"/>-->
+
+                    <!--<Button Name="tbrSearch" ToolTip="Tìm kiếm" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" HorizontalAlignment="Right" Click="tbrSearch_Click" >
+                        <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="18" Foreground="Blue" FontWeight="Normal"/>
+                    </Button>
+                    <Button Name="tbrRefresh" ToolTip="Làm mới" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" HorizontalAlignment="Right" Click="tbrRefresh_Click" >
+                        <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="18" FontWeight="Normal" Foreground="Maroon"/>
+                    </Button>-->
+
+                </StackPanel>
+            </DockPanel>
+        </ToolBar>
+
+        <Grid Grid.Row="1" Margin="0,0,0,0" Background="SeaGreen">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="420" /> 
+                <ColumnDefinition Width="150" />
+                <ColumnDefinition Width ="150" />
+                <ColumnDefinition Width="150" />
+                <ColumnDefinition Width ="150" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Foreground="LightGoldenrodYellow" Text="Id" Visibility="Collapsed" FontSize = "15" FontWeight="Normal" Grid.Column="0" Grid.Row="0" Margin="2,5,0,0"  />
+            <TextBlock Foreground="LightGoldenrodYellow" Text="STT" FontSize = "15" FontWeight="Bold" Grid.Column="1" Grid.Row="0" Margin="2,5,0,0" />
+            <TextBlock Foreground="LightGoldenrodYellow" Text="Mã màu " FontSize = "15" FontWeight="Bold" Grid.Column="2" Grid.Row="0" Margin="2,5,0,0" />
+            <TextBlock Foreground="LightGoldenrodYellow" Text="Tên màu" FontSize = "15" FontWeight="Bold" Grid.Column="3" Grid.Row="0" Margin="2,5,0,0" />
+            <TextBlock Foreground="LightGoldenrodYellow" Text="SL/TL nhập" FontSize = "15" FontWeight="Bold" Grid.Column="4" Grid.Row="0" Margin="2,5,0,0" />
+            <TextBlock Foreground="LightGoldenrodYellow" Text="SL/TL xuất" FontSize = "15" FontWeight="Bold" Grid.Column="5" Grid.Row="0" Margin="2,5,0,0" />
+            <TextBlock Foreground="LightGoldenrodYellow" Text="SL cuộn nhập" FontSize = "15" FontWeight="Bold" Grid.Column="6" Grid.Row="0" Margin="2,5,0,0" />
+            <TextBlock Foreground="LightGoldenrodYellow" Text="SL cuộn xuất" FontSize = "15" FontWeight="Bold" Grid.Column="7" Grid.Row="0" Margin="2,5,0,0" />
+            <TextBlock Foreground="LightGoldenrodYellow" Text="Tồn kho" FontSize = "15" FontWeight="Bold" Grid.Column="8" Grid.Row="0" Margin="2,5,0,0" />            
+        </Grid>
+
+        <ListView Name="myListView" Grid.Row="2" ItemsSource="{Binding ProductView}"  AlternationCount="2" ItemContainerStyle="{DynamicResource _ListBoxItemStyle}" BorderThickness="1" SelectedIndex="0" Margin="0,0,0,10">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="50" />
+                            <ColumnDefinition Width="200" />
+                            <ColumnDefinition Width="420" />
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width ="150" />
+                            <ColumnDefinition Width ="150" />
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="150" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0"  Grid.Row="1" Visibility="Collapsed" Margin="0,5,0,0" FontWeight="Normal" Foreground="Maroon" VerticalAlignment="Bottom" HorizontalAlignment="Left" TextAlignment="Left" FontSize = "15" Text="{Binding Id}" />
+                        <TextBlock Grid.Column="1"  Grid.Row="1" Margin="0,5,0,0" FontWeight="Normal" Foreground="Maroon" VerticalAlignment="Bottom" HorizontalAlignment="Left" Visibility="Visible" TextAlignment="Right" FontSize = "15" Text="{Binding RowNumber}"/>
+                        <TextBlock Grid.Column="2"  Grid.Row="1" Margin="0,5,0,0" FontWeight="Normal" Foreground="Maroon" VerticalAlignment="Bottom" HorizontalAlignment="Left" Visibility="Visible" TextAlignment="Left" FontSize = "15" Text="{Binding Code}"/>
+                        <TextBlock Grid.Column="3"  Grid.Row="1" Margin="0,5,0,0" FontWeight="Normal" Foreground="Maroon" VerticalAlignment="Bottom" HorizontalAlignment="Left" Visibility="Visible" TextAlignment="Left" FontSize = "15" Text="{Binding ProductName}"/>
+                        <TextBlock Grid.Column="4"  Grid.Row="1" Margin="0,5,0,0" FontWeight="Normal" Foreground="Maroon" VerticalAlignment="Bottom" HorizontalAlignment="Left" Visibility="Visible" TextAlignment="Left" FontSize = "15" Text="{Binding QuantityIn, ConverterCulture='vi-VN', StringFormat ='{}{0:N2}'}"/>
+                        <TextBlock Grid.Column="5"  Grid.Row="1" Margin="0,5,0,0" FontWeight="Normal" Foreground="Red" VerticalAlignment="Bottom" HorizontalAlignment="Left" Visibility="Visible" TextAlignment="Left" FontSize = "15" Text="{Binding QuantityOut , ConverterCulture='vi-VN', StringFormat ='{}{0:N2}'}"/>
+                        <TextBlock Grid.Column="6"  Grid.Row="1" Margin="0,5,0,0" FontWeight="Normal" Foreground="Maroon" VerticalAlignment="Bottom" HorizontalAlignment="Left" Visibility="Visible" TextAlignment="Left" FontSize = "15" Text="{Binding QuantityIn , ConverterCulture='vi-VN', StringFormat ='{}{0:N2}'}"/>
+                        <TextBlock Grid.Column="7"  Grid.Row="1" Margin="0,5,0,0" FontWeight="Normal" Foreground="Red" VerticalAlignment="Bottom" HorizontalAlignment="Left" Visibility="Visible" TextAlignment="Left" FontSize = "15" Text="{Binding QuantityOut , ConverterCulture='vi-VN', StringFormat ='{}{0:N0}'}"/>
+                        <TextBlock Grid.Column="8"  Grid.Row="1" Margin="0,5,0,0" FontWeight="Normal" Foreground="DarkBlue" VerticalAlignment="Bottom" HorizontalAlignment="Left" Visibility="Visible" TextAlignment="Left" FontSize = "15" Text="{Binding Available , ConverterCulture='vi-VN', StringFormat ='{}{0:N0}'}"/>                        
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Window>

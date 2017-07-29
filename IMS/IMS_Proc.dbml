@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SmallERP_AnHuy" Class="IMS_ProcDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-CEFGNA7\SQLEXPRESS;Initial Catalog=SmallERP_HuongTrinh;User ID=sa;Encrypt=False;TrustServerCertificate=True" SettingsObjectName="IMS.Properties.Settings" SettingsPropertyName="SmallERPConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Inventory" Member="Inventory1s">
+    <Type Name="Inventory1">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="DiffNo" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CodeEx" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Barcode" Type="System.Data.Linq.Binary" DbType="Binary(1024)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Expiry" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ExpiryEx" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="LottNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CreatedDateEx" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="PriceIn" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IdInvoice" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IdInvoiceOut" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IdInventoryStorage" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsOutput" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsGiven" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.ProcInsertProduct" Method="ProcInsertProduct">
+    <Parameter Name="Code" Parameter="code" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="RefNo" Parameter="refNo" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="RefNoLenth" Parameter="refNoLenth" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PriceIn" Parameter="priceIn" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="PriceOut" Parameter="priceOut" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="UnitName" Parameter="unitName" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="ProductKindName" Parameter="productKindName" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="ProductGroupName" Parameter="productGroupName" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="ManufactureName" Parameter="manufactureName" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="ExpiryRule" Parameter="expiryRule" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="LottNoRule" Parameter="lottNoRule" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="StockLimit" Parameter="stockLimit" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ExpiryLimit" Parameter="expiryLimit" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ProcGetCodeFromRefNo" Method="ProcGetCodeFromRefNo">
+    <Parameter Name="RefNo" Parameter="refNo" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="Code" Parameter="code" Type="System.String" DbType="NVarChar(250)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ProcUpdateIsDone" Method="ProcUpdateIsDone">
+    <Parameter Name="TableName" Parameter="tableName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Id" Parameter="id" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Status" Parameter="status" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ProcIsExistInventoryInputItem" Method="ProcIsExistInventoryInputItem">
+    <Parameter Name="CodeEx" Parameter="codeEx" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="Result" Parameter="result" Type="System.String" DbType="NVarChar(1)" Direction="InOut" />
+    <ElementType Name="ProcIsExistInventoryInputItemResult">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DiffNo" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CodeEx" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Barcode" Type="System.Data.Linq.Binary" DbType="Binary(50)" CanBeNull="true" />
+      <Column Name="Expiry" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ExpiryEx" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="LottNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PriceIn" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="IdProductPurchase" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ProcGetTotalQuantityInventoryInput" Method="ProcGetTotalQuantityInventoryInput">
+    <Parameter Name="IdProductPurchase" Parameter="idProductPurchase" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="TotalQuantity" Parameter="totalQuantity" Type="System.String" DbType="NVarChar(256)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ProcUpdateCustomerCreditLimit" Method="ProcUpdateCustomerCreditLimit">
+    <Parameter Name="IdCustomer" Parameter="idCustomer" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="IdProduct" Parameter="idProduct" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Quantity" Parameter="quantity" Type="System.Int64" DbType="BigInt" />
+    <ElementType Name="ProcUpdateCustomerCreditLimitResult">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="IdCustomer" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IdProduct" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ProcInsertCustomer" Method="ProcInsertCustomer">
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="DateOfBirth" Parameter="dateOfBirth" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="IdProvince" Parameter="idProvince" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdDistrict" Parameter="idDistrict" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdWard" Parameter="idWard" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Address" Parameter="address" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="Ocupation" Parameter="ocupation" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="Phone" Parameter="phone" Type="System.String" DbType="NVarChar(250)" />
+    <ElementType Name="ProcInsertCustomerResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfBirth" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IdProvince" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdDistrict" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdWard" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Ocupation" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ProcInsertProductKind" Method="ProcInsertProductKind">
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Code" Parameter="code" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="IsColorDiff" Parameter="isColorDiff" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="ProcInsertProductKindResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="IsColorDiff" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ProcUpdateSalePrice" Method="ProcUpdateSalePrice">
+    <Parameter Name="Code" Parameter="code" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Price" Parameter="price" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="QuantityDiscount" Parameter="quantityDiscount" Type="System.Single" DbType="Real" />
+    <Parameter Name="IdSale" Parameter="idSale" Type="System.Int64" DbType="BigInt" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

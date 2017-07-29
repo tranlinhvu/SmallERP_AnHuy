@@ -1,0 +1,166 @@
+﻿<Page x:Class="IMS.ImagesSystem"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:IMS"
+      mc:Ignorable="d" FontFamily="Times New Roman" 
+      d:DesignHeight="800" d:DesignWidth="900"
+      Title="ImagesSystem">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80" />
+            <RowDefinition Height="auto" />            
+        </Grid.RowDefinitions>
+        
+         <ToolBar Name="toolBar" Grid.Row="0" Background="#A2D4B0">
+            <DockPanel Width="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType={x:Type ToolBarPanel}}}">
+                <DockPanel.Resources>
+                    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"></Style>
+                </DockPanel.Resources>
+                <Button Name="tbrAdd" ToolTip="Thêm" VerticalAlignment="Bottom" Margin="0,0,0,0" >
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="45" Foreground="DarkGoldenrod"/>
+                </Button>
+                <Button Name="tbrEdit" ToolTip="Sửa chữa" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" Margin="0,0,0,0">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="45" Foreground="Gold"/>
+                </Button>
+                <Button Name="tbrRemove" ToolTip="Xóa" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" Margin="0,0,0,0" >
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="45" Foreground="DarkRed"/>
+                </Button>
+                <Button Name="tbrSave" ToolTip="Lưu" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" IsEnabled="False" Margin="0,0,0,0" >
+                    <TextBlock Name="lblSave" FontFamily="Segoe MDL2 Assets" Text="" FontSize="45" Foreground="Maroon"/>
+                </Button>
+                <Button Name="tbrCancel" ToolTip="Hủy" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" IsEnabled="False">
+                    <TextBlock Name="lblCancel" FontFamily="Segoe MDL2 Assets" Text="" FontSize="45" Foreground="Chocolate"/>
+                </Button>
+                <Button ToolTip="Hủy" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" IsEnabled="False">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="45" Foreground="CadetBlue"/>
+                </Button>
+                <Button ToolTip="Hủy" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" IsEnabled="False">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="45" Foreground="DarkGoldenrod"/>
+                </Button>
+                <Button ToolTip="Hủy" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" IsEnabled="False">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="45" Foreground="DarkGoldenrod"/>
+                </Button>
+                <Button ToolTip="Hủy" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" IsEnabled="False">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="45" Foreground="DarkGoldenrod"/>
+                </Button>
+                <Button ToolTip="Hủy" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" IsEnabled="False">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="45" Foreground="DarkGoldenrod"/>
+                </Button>
+                <Button ToolTip="Hủy" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" IsEnabled="False">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="45" Foreground="DarkGoldenrod"/>
+                </Button>
+                <Button ToolTip="Hủy" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" IsEnabled="False">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="45" Foreground="DarkGoldenrod"/>
+                </Button>
+                <Button ToolTip="Hủy" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" IsEnabled="False">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="45" Foreground="DarkGoldenrod"/>
+                </Button>
+                <Button ToolTip="Hủy" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" IsEnabled="False">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="45" Foreground="DarkGoldenrod"/>
+                </Button>
+                <Button ToolTip="Hủy" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" IsEnabled="False">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="45" Foreground="DarkGoldenrod"/>
+                </Button>
+                <Button ToolTip="Hủy" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" IsEnabled="False">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="45" Foreground="DarkGoldenrod"/>
+                </Button>
+                <Button ToolTip="Hủy" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" IsEnabled="False">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="45" Foreground="DarkGoldenrod"/>
+                </Button>
+                <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Name="tbrSearch" ToolTip="Clear" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" Margin="150,0,0,5">
+                        <TextBlock Foreground="LightGoldenrodYellow" Text="Tìm kiếm" FontSize="16" Foreground="Maroon"/>
+                    </Button>
+                    <Button Name="tbrSearchText" ToolTip="Clear" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom">
+                        <TextBox Text="" Width ="150" FontSize="16" Foreground="Maroon"/>
+                    </Button>
+                    <Button Name="tbrSearchImg" ToolTip="Clear" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" HorizontalAlignment="Left">
+                        <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="18" Foreground="Blue"/>
+                    </Button>
+                    <Separator BorderThickness="2" Foreground="#9FB6A6"/>
+
+                    <Button Name="tbrRefreshImg" ToolTip="Clear" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" HorizontalAlignment="Left">
+                        <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="18" Foreground="Maroon"/>
+                    </Button>
+                </StackPanel>-->
+            </DockPanel>
+        </ToolBar>
+
+        <ToolBar Name="toolBar1" Grid.Row="1">
+            <DockPanel Width="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType={x:Type ToolBarPanel}}}">
+                <DockPanel.Resources>
+                    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"></Style>
+                </DockPanel.Resources>
+                <Button ToolTip="Thêm" VerticalAlignment="Bottom" Margin="0,0,0,0" >
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="45" Foreground="Maroon"/>
+                </Button>
+                <Button ToolTip="Sửa chữa" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" Margin="0,0,0,0">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="45" Foreground="DarkSalmon"/>
+                </Button>
+                <Button ToolTip="Xóa" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" Margin="0,0,0,0" >
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="45" Foreground="Red"/>
+                </Button>
+                <Button ToolTip="Lưu" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" IsEnabled="False" Margin="0,0,0,0" >
+                    <TextBlock  FontFamily="Segoe MDL2 Assets" Text="" FontSize="45" Foreground="Maroon"/>
+                </Button>
+                <Button  ToolTip="Hủy" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" IsEnabled="False">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="45" Foreground="Chocolate"/>
+                </Button>
+                <Button ToolTip="Hủy" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" IsEnabled="False">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="45" Foreground="CadetBlue"/>
+                </Button>
+                <Button ToolTip="Hủy" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" IsEnabled="False">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="45" Foreground="Coral"/>
+                </Button>
+                <Button ToolTip="Hủy" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" IsEnabled="False">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="45" Foreground="DarkGoldenrod"/>
+                </Button>
+                <Button ToolTip="Hủy" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" IsEnabled="False">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="45" Foreground="Navy"/>
+                </Button>
+                <Button ToolTip="Hủy" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" IsEnabled="False">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="45" Foreground="MidnightBlue"/>
+                </Button>
+                <Button ToolTip="Hủy" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" IsEnabled="False">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="45" Foreground="Maroon"/>
+                </Button>
+                <Button ToolTip="Hủy" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" IsEnabled="False">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="45" Foreground="Maroon"/>
+                </Button>
+                <Button ToolTip="Hủy" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" IsEnabled="False">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="45" Foreground="LightSkyBlue"/>
+                </Button>
+                <Button ToolTip="Hủy" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" IsEnabled="False">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="45" Foreground="DarkSeaGreen"/>
+                </Button>
+                <Button ToolTip="Hủy" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" IsEnabled="False">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="45" Foreground="Brown"/>
+                </Button>
+                <Button ToolTip="Hủy" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" IsEnabled="False">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="45" Foreground="DarkGray"/>
+                </Button>
+                <Button ToolTip="Hủy" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" IsEnabled="False">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="45" Foreground="DimGray"/>
+                </Button>
+                <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Name="tbrSearch" ToolTip="Clear" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" Margin="150,0,0,5">
+                        <TextBlock Foreground="LightGoldenrodYellow" Text="Tìm kiếm" FontSize="16" Foreground="Maroon"/>
+                    </Button>
+                    <Button Name="tbrSearchText" ToolTip="Clear" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom">
+                        <TextBox Text="" Width ="150" FontSize="16" Foreground="Maroon"/>
+                    </Button>
+                    <Button Name="tbrSearchImg" ToolTip="Clear" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" HorizontalAlignment="Left">
+                        <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="18" Foreground="Blue"/>
+                    </Button>
+                    <Separator BorderThickness="2" Foreground="#9FB6A6"/>
+
+                    <Button Name="tbrRefreshImg" ToolTip="Clear" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" HorizontalAlignment="Left">
+                        <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="18" Foreground="Maroon"/>
+                    </Button>
+                </StackPanel>-->
+            </DockPanel>
+        </ToolBar>
+    </Grid>
+</Page>

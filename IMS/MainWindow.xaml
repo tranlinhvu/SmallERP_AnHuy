@@ -1,0 +1,290 @@
+﻿<Window x:Class="IMS.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+        xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"    
+    
+        xmlns:local="clr-namespace:IMS"
+        xmlns:HamburgerMenu="clr-namespace:HamburgerMenu;assembly=HamburgerMenu"
+        mc:Ignorable="d" FontFamily="Times New Roman"
+        Title="IMS - Phần mềm quản lý kho hàng hóa - Phiên bản 1.0 (Build 2017.05)" AllowsTransparency="False" x:Name="this_"
+        Width="1200"
+        WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <Window.Resources>      
+
+        <Style TargetType="{x:Type Border}">
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="BorderBrush" Value="Red" />
+        </Style>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="Content" Value="Test" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />                      
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>       
+
+        <DockPanel Grid.Row="0">
+            <Ribbon Name="mnuMainMenu" DockPanel.Dock="Top" SelectedIndex="2" Background="#A2D4B0" IsMinimized="False" Foreground="DarkBlue" FontWeight="SemiBold" FontSize="12">
+                <Ribbon.ApplicationMenu>
+                    <RibbonApplicationMenu Visibility="Collapsed">
+                    </RibbonApplicationMenu>
+                </Ribbon.ApplicationMenu>
+                
+                <RibbonTab x:Name="tab0" Header="Hệ thống">
+                    <RibbonGroup Header="Tài khoản">
+                        <RibbonButton Width="80" x:Name="btnLogin" Label="Đăng nhập" LargeImageSource="{dx:DXImage Image=Right_32x32.png}" Click="btnLogin_Click" />
+                        <RibbonButton  Width="80" x:Name="btnLogout" Label="Đăng xuất" LargeImageSource="{dx:DXImage Image=Left_32x32.png}" Click="btnLogout_Click" />                        
+                    </RibbonGroup>
+                    <RibbonGroup Header="Dữ liệu">
+                        <RibbonButton Width="80" x:Name="btnBackup" Label="Sao lưu" LargeImageSource="{dx:DXImage Image=Fill_32x32.png}" Click="btnBackup_Click" />
+                        <RibbonButton  Width="80" x:Name="btnRestore" Label="Phục hồi" LargeImageSource="{dx:DXImage Image=Reset_32x32.png}" Click="btnRestore_Click" />
+                    </RibbonGroup>
+                    <RibbonGroup>
+                        <RibbonButton  Width="80" x:Name="btnClose" Label="Thoát" LargeImageSource="{dx:DXImage Image=Close_32x32.png}" Click="btnClose_Click" />
+                    </RibbonGroup>
+                </RibbonTab>
+                
+                <RibbonTab x:Name="tab1" Header="Thiết lập">
+                    <RibbonGroup Header="Kết nối">
+                        <RibbonButton Width="80" x:Name="btnSQLServer" Label="Máy chủ" LargeImageSource="{dx:DXImage Image=ServerMode_32x32.png}" Click="btnSQLServer_Click" />
+                        <RibbonButton Width="80" x:Name="btnPrinter" Label="Thiết bị" LargeImageSource="{dx:DXImage Image=Printer_32x32.png}"/>                        
+                    </RibbonGroup>                    
+                               
+                    <RibbonGroup Header="Tài khoản">
+                        <RibbonButton Width="80" x:Name="btnUser" Label="Người dùng" LargeImageSource="{dx:DXImage Image=BOUser_32x32.png}" Click="btnUser_Click" />
+                        <RibbonButton  Width="80" x:Name="btnKey" Label="Phân quyền" LargeImageSource="{dx:DXImage Image=LockNavigation_32x32.png}"/>
+                    </RibbonGroup>
+                    <RibbonGroup Header="Dữ liệu">
+                        <RibbonButton Width="80" x:Name="btnRefreshDB" Label="Làm mới dữ liệu" LargeImageSource="{dx:DXImage Image=Refresh_32x32.png}" Click="btnRefreshDB_Click" />
+                    </RibbonGroup>
+                </RibbonTab>
+
+                <RibbonTab x:Name="tab2" Header="Danh mục">
+                    <!--<RibbonGroup Header="Cơ sở">
+                        <RibbonButton Width="80" x:Name="btnBrand" Label="Chi nhánh" LargeImageSource="Assets\brand.png" />
+                        <RibbonButton Width="80" x:Name="btnAddress" Label="Kho" LargeImageSource="Assets\Address.png"/>
+                    </RibbonGroup>-->
+                    <RibbonGroup Header="Hàng hóa  - vật tư">
+                        <RibbonButton Width="80" x:Name="btnProduct" Label="Hàng hóa " LargeImageSource="{dx:DXImage Image=LoadTheme_32x32.png}" RibbonTwoLineText.HasTwoLines="False" Click="btnProduct_Click"/>
+                        <RibbonButton Width="80" x:Name="btnStorage" Label="Kho hàng" LargeImageSource="{dx:DXImage Image=TableLayout_32x32.png}" VerticalAlignment="Bottom" Click="btnStorage_Click" />
+                        <!--<RibbonButton Width="80" x:Name="btnGoods" Label="Kho hàng" LargeImageSource="Assets/labo.png" VerticalAlignment="Bottom" Click="btnGoods_Click" />-->
+                    </RibbonGroup>
+                    <RibbonGroup Header="Nhân sự">
+                        <RibbonButton Width="80" x:Name="btnStaff" Label="Nhân viên" LargeImageSource="{dx:DXImage Image=BOEmployee_32x32.png}" VerticalAlignment="Bottom" Click="btnStaff_Click" />
+                        <RibbonButton Width="80" x:Name="btnCustomer" Label="Khách hàng" LargeImageSource="{dx:DXImage Image=BOCustomer_32x32.png}" VerticalAlignment="Bottom" Click="btnCustomer_Click" />
+                        <RibbonButton Width="80" x:Name="btnVendor" Label="Nhà cung cấp" LargeImageSource="{dx:DXImage Image=BOContact_32x32.png}" VerticalAlignment="Bottom" Click="btnVendor_Click" />
+                        <RibbonButton Width="80" x:Name="btnManufacture" Label="Nhà sản xuất" LargeImageSource="{dx:DXImage Image=Customer_32x32.png}" Click="btnManufacture_Click" />
+                    </RibbonGroup>
+                    
+                    <!--<RibbonGroup Header="Sửa chữa">
+                        <RibbonButton Width="80" x:Name="btnService" Label="Dịch vụ" LargeImageSource="Assets/service.png" RibbonTwoLineText.HasTwoLines="False" Click="btnService_Click" />
+                        <RibbonButton Width="80" x:Name="btnServiceGroup" Label="Nhóm dịch vụ" LargeImageSource="Assets/servicegroup.png" VerticalAlignment="Bottom" Click="btnServiceGroup_Click" />
+                        <RibbonButton Width="80" x:Name="btnServiceDetail" Label="Công đoạn" LargeImageSource="Assets/stages.png" VerticalAlignment="Bottom" Click="btnServiceDetail_Click"/>
+                    </RibbonGroup>-->
+                </RibbonTab>
+
+                <!--<RibbonTab x:Name="tab3" Header="Dịch vụ" Visibility="Hidden">
+                    <RibbonGroup Margin="0,1" Header="Nhân viên">
+                        <RibbonButton Width="80" x:Name="btnOrder" Label="Tiếp nhận" LargeImageSource="Assets/saleorder.jpg" Click="btnOrder_Click" />
+                        <RibbonButton Width="80" x:Name="btnObjectCareSale" Label="Sửa chữa" LargeImageSource="Assets/objectcaring.png" Click="btnObjectCareSale_Click" />
+                        <RibbonButton Width="80" x:Name="btnPayment" Label="Thanh toán" LargeImageSource="Assets/SellPart.png" Click="btnPayment_Click" />                        
+                    </RibbonGroup>
+                    <RibbonGroup Margin="0,1" Header="Khách hàng">                        
+                        <RibbonButton Width="80" x:Name="btnSetDate" Label="Lịch hẹn" LargeImageSource="Assets/dating.png" Click="btnSetDate_Click" />
+                        <RibbonButton Width="80" x:Name="btncustomerDocument" Label="Hồ sơ" LargeImageSource="Assets/patiencefile.png" Click="btncustomerDocument_Click" />
+                    </RibbonGroup>
+                    <RibbonGroup Margin="0,1" Header="Quản trị">
+                        <RibbonButton Width="80" x:Name="btnObjectCareManagement" Label="Bảng công việc" LargeImageSource="Assets/watchout.png" Click="btnObjectCareManagement_Click" />                        
+                    </RibbonGroup>
+                </RibbonTab>-->                
+
+                <RibbonTab x:Name="tab3" Header="Hàng hóa ">
+                    <RibbonGroup Header="Xuất hàng">
+                        <RibbonButton Width="80" x:Name="btnProductSale" Label="Bán hàng" LargeImageSource="{dx:DXImage Image=BOSale_32x32.png}" Click="btnProductSale_Click" />
+                        <!--<RibbonButton Width="80" x:Name="btnProductGiven" Label="Ký gửi hàng" LargeImageSource="{dx:DXImage Image= Build_32x32.png}" Click="btnProductGiven_Click" />-->                                                                                           
+                    </RibbonGroup>
+                    <!--<Separator />-->
+                    <RibbonGroup Header="Nhập hàng">
+                        <RibbonButton Width="100" x:Name="btnProductPurchaseOrder" Label="Đơn đặt mua hàng" LargeImageSource="{dx:DXImage Image = CopyModelDifferences_32x32.png }" Click="btnProductPurchaseOrder_Click" />
+                        <RibbonButton Width="80" x:Name="btnProductPurchase" Label="Mua hàng" LargeImageSource="{dx:DXImage Image=AddFile_32x32.png}" Click="btnProductPurchase_Click" />
+                        <RibbonButton Width="80" x:Name="btnProductReturn" Label="Nhận hàng trả lại" LargeImageSource="{dx:DXImage Image=Backward_32x32.png}" Click="btnProductReturn_Click" />
+                        <!--<RibbonButton Width="80" x:Name="btnReturnGoods" Label="Trả hàng NCC" LargeImageSource="{dx:DXImage Image=Forward_32x32.png}"/>-->                        
+                    </RibbonGroup>
+                    <!--<RibbonGroup Header="BOM (Bill Of Marterial)">
+                        <RibbonButton Width="80" x:Name="btnCreateBOM" Label="Tạo BOM" LargeImageSource="{dx:DXImage Image= CreateModelDifferences_32x32.png}" Click="btnCreateBOM_Click" />
+                        <RibbonButton Width="80" x:Name="btnExtractBOM" Label="Tách BOM" LargeImageSource="{dx:DXImage Image=SplitAppointment_32x32.png}" Click="btnExtractBOM_Click" />
+                        --><!--<RibbonButton Width="80" x:Name="btnReturnGoods" Label="Trả hàng NCC" LargeImageSource="{dx:DXImage Image=Forward_32x32.png}"/>--><!--
+                    </RibbonGroup>-->
+                    <!--<Separator />-->
+                    <!--<RibbonGroup Header="BOM (Bill Of Marterial)">
+                        <RibbonButton Width="80" x:Name="btnOutputForProducing" Label="Xuất cho sản xuất(lắp ráp)" LargeImageSource="{dx:DXImage Image= CreateModelDifferences_32x32.png}" Click="btnCreateBOM_Click" />
+                        <RibbonButton Width="80" x:Name="btnInputFromProducing" Label="Nhập từ sản xuất(lắp ráp)" LargeImageSource="{dx:DXImage Image=SplitAppointment_32x32.png}" Click="btnExtractBOM_Click" />
+                        --><!--<RibbonButton Width="80" x:Name="btnReturnGoods" Label="Trả hàng NCC" LargeImageSource="{dx:DXImage Image=Forward_32x32.png}"/>--><!--
+                    </RibbonGroup>-->
+                    <!--<Separator />-->
+                </RibbonTab>
+
+                <!--<RibbonTab x:Name="tab4" Header="Vật tư" Visibility="Hidden">
+                    <RibbonGroup Header="Đơn hàng">                       
+                        <RibbonButton Width="80" x:Name="btnEquipmentPurchase" Label="Mua vật tư" LargeImageSource="Assets/equipmentpurchase.png"/>
+                    </RibbonGroup>                    
+                    <RibbonGroup Header="Quản lý kho">
+                        <RibbonButton Width="80" x:Name="btnAssetIn" Label="Nhập kho" LargeImageSource="Assets/InvIn.jpg"/>
+                        <RibbonButton Width="80" x:Name="btnAssetOut" Label="Xuất kho" LargeImageSource="Assets/InvOut.jpg"/>
+                        <RibbonButton Width="80" x:Name="btnAssetInventory" Label="Tồn kho" LargeImageSource="Assets/inventory_remain.jpg"/>
+                    </RibbonGroup>
+                </RibbonTab>-->
+
+                <RibbonTab x:Name="tab4" Header="Công nợ">
+                    <!--<RibbonGroup Header="Thu chi">
+                        <RibbonButton Width="80" x:Name="btnGet" Label="Thu" LargeImageSource="{dx:DXImage Image=Undo_32x32.png}"/>
+                        <RibbonButton Width="80" x:Name="btnOffer" Label="Chi" LargeImageSource="{dx:DXImage Image=Redo_32x32.png}"/>
+                    </RibbonGroup>-->
+                    <RibbonGroup Header="Công nợ khách hàng">
+                        <RibbonButton Width="80" x:Name="btnProductCustomerCreditLimit" Label="Theo dõi công nợ KH" LargeImageSource="Assets/CustomerCredit.png" Click="btnProductCustomerCreditLimit_Click" />
+                        <RibbonButton Width="80" x:Name="btnCustomerCredit" Label="Khách hàng thanh toán" LargeImageSource="Assets/VendorDebit.jpg" Click="btnCustomerCredit_Click" />
+                    </RibbonGroup>
+                    <!--<RibbonGroup Header="Nhân viên">
+                        <RibbonButton Width="80" x:Name="btnSalary" Label="Bảng lương" LargeImageSource="{dx:DXImage Image=TableOfContent_32x32.png}"/>                        
+                    </RibbonGroup>-->
+                </RibbonTab>
+
+                <RibbonTab x:Name="tab5" Header="Quản lý kho">
+                    <RibbonGroup Header="Nhập - xuất - chuyển">
+                        <RibbonButton Width="80" x:Name="btnGoodsIn" Label="Nhập kho" LargeImageSource="{dx:DXImage Image=NavigateNext_32x32.png}" Click="btnGoodsIn_Click" />
+                        <!--<RibbonButton Width="80" x:Name="btnInventoryOutput" Label="Xuất kho" LargeImageSource="{dx:DXImage Image=Previous_32x32.png}" Click="btnInventoryOutput_Click"/>-->
+                        <RibbonButton Width="80" x:Name="btnInventoryExchange" Label="Chuyển kho" LargeImageSource="{dx:DXImage Image=Recurrence_32x32.png}" Click="btnInventoryExchange_Click"/>
+                    </RibbonGroup>                    
+                    <RibbonGroup Header="Kho hàng hóa">
+                        <RibbonButton Width="80" x:Name="btnInventoryAvailable" Label="Hàng tồn kho" LargeImageSource="Assets/inventory_remain.jpg" Click="btnInventoryAvailable_Click" />
+                        <RibbonButton Width="80" x:Name="btnInventoryCheck" Label="Kết quả kiểm kê" LargeImageSource="{dx:DXImage Image=CheckButtons_32x32.png}" Click="btnInventoryCheck_Click" />
+                    </RibbonGroup>
+                </RibbonTab>
+
+                <RibbonTab x:Name="tab6" Header="Báo cáo">
+                    <RibbonGroup Header="Báo cáo kho">
+                        <RibbonButton Width="80" x:Name="btnInvIORReport" Label="Nhập xuất tồn" LargeImageSource="{dx:DXImage Image= Report_32x32.png}" Click="btnInvIORReport_Click" />
+                        <RibbonButton Width="80" x:Name="btnInvAvailebleReport" Label="Tồn kho" LargeImageSource="{dx:DXImage Image= Report_32x32.png}" Click="btnInvAvailebleReport_Click" />
+                    </RibbonGroup>
+                    <!--<RibbonGroup Header="Báo cáo">
+                        <RibbonButton Width="80" x:Name="btnViewReport" Label="Xem báo cáo" LargeImageSource="{dx:DXImage Image= Report_32x32.png}" Click="btnViewReport_Click"/>
+                    </RibbonGroup>-->
+                    <RibbonGroup Header="Báo cáo hàng hóa">
+                        <RibbonButton Width="80" x:Name="btnPurchaseReport" Label="Mua hàng" LargeImageSource="{dx:DXImage Image= Report_32x32.png}" Click="btnPurchaseReport_Click"/>
+                        <RibbonButton Width="80" x:Name="btnSaleReport" Label="Bán hàng" LargeImageSource="{dx:DXImage Image= Report_32x32.png}" Click="btnSaleReport_Click"/>
+                        <RibbonButton Width="80" x:Name="btnBusinessReport" Label="Tổng hợp" LargeImageSource="{dx:DXImage Image= Report_32x32.png}" Click="btnBusinessReport_Click" />
+                    </RibbonGroup>
+
+                </RibbonTab>
+
+                <RibbonTab x:Name="tab7" Header="Quản lý chứng từ">
+                    <RibbonGroup Header="Nhập xuất">
+                        <RibbonButton Width="80" x:Name="btnManageSaleInvoice" Label="Chứng từ xuất hàng" LargeImageSource="{dx:DXImage Image=ChartXAxisSettings_32x32.png}" Click="btnManageSaleInvoice_Click" />
+                        <RibbonButton Width="80" x:Name="btnManagePurchaseInvoice" Label="Chứng từ nhập hàng" LargeImageSource="{dx:DXImage Image=ChartYAxisSettings_32x32.png}" Click="btnManagePurchaseInvoice_Click" />
+                    </RibbonGroup>
+                </RibbonTab>
+                
+                <RibbonTab x:Name="tab8" Header="Hỗ trợ">
+                    <RibbonGroup>
+                        <RibbonButton Width="80" x:Name="btnHelp" Label="Hướng dẫn sử dụng" LargeImageSource="{dx:DXImage Image= Index_32x32.png}"/>
+                        <RibbonButton Width="80" x:Name="btnAbout" Label="Về chương trình" LargeImageSource="{dx:DXImage Image=Info_32x32.png}" Click="btnAbout_Click" />                        
+                    </RibbonGroup>                 
+                </RibbonTab>
+                
+            </Ribbon>
+        </DockPanel>
+    
+
+        <!--<ToolBar Name="toolBar" Grid.Row="1" Height="45">
+            <DockPanel Width="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType={x:Type ToolBarPanel}}}">
+                <DockPanel.Resources>
+                    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"></Style>
+                </DockPanel.Resources>
+                <Button Name="tbrService" ToolTip="Dịch vụ" VerticalAlignment="Bottom" Margin="0,0,15,0">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="35" Foreground="Maroon"/>
+                </Button>
+                <Button Name="tbrCanlendar" ToolTip="Lịch hẹn" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" Margin="0,0,15,0">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="35" Foreground="DarkMagenta"/>
+                </Button>
+                <Button Name="tbrRemove" ToolTip="Công đoạn" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" Margin="0,0,15,0">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="35" Foreground="DarkGoldenrod"/>
+                </Button>
+                
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">                    
+                    <Button Name="tbrSearchImg" Margin="0,0,15,0" ToolTip="Thiết lập" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" HorizontalAlignment="Left">
+                        <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="35" Foreground="Maroon"/>
+                    </Button>
+                    <Button Name="tbrSecurity" Margin="0,0,15,0" ToolTip="Phân quyền" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" HorizontalAlignment="Left">
+                        <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="35" Foreground="DarkGoldenrod"/>
+                    </Button>
+                    <Button Name="tbrLogout" ToolTip="Đăng xuất" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" HorizontalAlignment="Left">
+                        <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="35" Foreground="Gray"/>
+                    </Button>
+                </StackPanel>
+            </DockPanel>
+        </ToolBar>-->
+        
+            <!--Thông tin về công ty-->
+        <!--<Grid Name="splCompany" Grid.Row="1" Margin="10" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="AUTO" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Image Source="/Assets/tgmv.png" Grid.Column="0" Margin="5, 10, 0,0" Height="80" Width="80"/>
+            <StackPanel Name="splCompany2" Grid.Column="1" Margin="5, 10, 0,0">
+                <TextBlock Foreground="LightGoldenrodYellow" Text="CÔNG TY TNHH THẾ GIỚI MÃ VẠCH" FontSize="16" Foreground="Maroon"/>
+                <TextBlock Foreground="LightGoldenrodYellow" Text="Địa chỉ: 30 Đặng Văn Ngữ, P.10, Q. Phú Nhuận, TP. HCM  " FontSize="15"/>
+                <TextBlock Foreground="LightGoldenrodYellow" Text="Tel: (84-8)39917496 | Fax: (84-8) 3991 7357" FontSize="15"/>
+
+                <TextBlock FontSize="15">
+                    <Hyperlink NavigateUri="http://thegioimavach.com " RequestNavigate="Hyperlink_RequestNavigate">
+                        http://thegioimavach.com
+                    </Hyperlink>
+                </TextBlock>
+                <TextBlock Foreground="LightGoldenrodYellow" Text="Hỗ trợ: 0989522879  " FontSize="15"/>
+            </StackPanel>
+        </Grid>-->
+
+        <TabControl Grid.Row ="1" Name="tabDynamic" Margin="2,15,2,2" Unloaded="tabDynamic_Unloaded" >
+            <TabControl.Resources>
+                <DataTemplate x:Key="TabHeader" DataType="TabItem" >
+                    <DockPanel>
+                        <Button x:Name="btnDelete" BorderThickness="0" FontFamily="Segoe MDL2 Assets" Content="" Background="White" Foreground="RoyalBlue" DockPanel.Dock="Right" Margin="5,0,0,0" Padding="0" Click="btnDelete_Click" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type TabItem}}, Path=Name}" MouseLeave="btnDelete_MouseLeave" MouseEnter="btnDelete_MouseEnter" Unloaded="btnDelete_Unloaded" >
+
+                        </Button>
+                        <TextBlock Foreground="LightGoldenrodYellow" Text="{Binding RelativeSource={RelativeSource AncestorType=TabItem }, Path=Header}" />
+                    </DockPanel>
+                </DataTemplate>
+                <Style TargetType="TextBox">
+                    <Setter Property="VerticalAlignment" Value="Stretch"></Setter>
+                    <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+                    <Setter Property="AcceptsReturn" Value="True"></Setter>
+                    <Setter Property="TextWrapping" Value="WrapWithOverflow"></Setter>
+                    <Setter Property="MaxLines" Value="5000"></Setter>
+                    <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"></Setter>
+                    <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"></Setter>
+                </Style>
+            </TabControl.Resources>
+        </TabControl>
+
+        <Border Grid.Row="2" BorderBrush="#9FB6A6" CornerRadius="1" BorderThickness="1" Padding="1" Background="SeaGreen" Margin="2">
+            <Grid Grid.Row="4" Margin ="5" Background="SeaGreen">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="0.5*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Foreground="LightGoldenrodYellow" Name="txtLeftStatus" Text="abc" FontSize="16" Grid.ColumnSpan="2" Margin="0,0,171.165,-0.667"/>
+                <TextBlock Grid.Column="1" Foreground="LightGoldenrodYellow" Name ="txtRightStatus" Text="xys" FontSize="16" HorizontalAlignment="Right" Margin="0,0,0.334,-0.667"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

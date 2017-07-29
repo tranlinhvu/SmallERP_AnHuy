@@ -1,0 +1,1083 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{135E9A93-9E12-4B9A-9FBF-8D94DF6E7D39}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IMS</RootNamespace>
+    <AssemblyName>IMS</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BarcodeLib">
+      <HintPath>.\BarcodeLib.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v15.1">
+      <HintPath>..\..\..\AnHuy\SmallERP\IMS\bin\Release\DevExpress.Data.v15.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Core.v15.1, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Release\DevExpress.Xpf.Core.v15.1.dll</HintPath>
+    </Reference>
+    <Reference Include="HamburgerMenu, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HamburgerMenu.0.1.0\lib\net40\HamburgerMenu.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Office.Client.Education, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\Excel-DNA.Interop.14.0.1\lib\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Vbe.Interop, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\Excel-DNA.Interop.14.0.1\lib\Microsoft.Vbe.Interop.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Office, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\Excel-DNA.Interop.14.0.1\lib\Office.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="QRCoder, Version=1.2.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Release\QRCoder.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Controls.Ribbon" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="CMS.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CMS.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DataSource_ProductPurchaseItemView.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSource_ProductPurchaseItemView.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DsBarcode.cs">
+      <DependentUpon>DsBarcode.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DsBarcode.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsBarcode.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DsInventoryInput.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsInventoryInput.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="frmCustomerCredit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCustomerCredit.Designer.cs">
+      <DependentUpon>frmCustomerCredit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="General\GeneralFuctions.cs" />
+    <Compile Include="ImagesSystem.xaml.cs">
+      <DependentUpon>ImagesSystem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="IMS_Report.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IMS_Report.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="IMS_Table.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IMS_Table.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="IMS_Proc.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IMS_Proc.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="IMS_View.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IMS_View.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CustomerView.cs" />
+    <Compile Include="Model\InventoryInputItem.cs" />
+    <Compile Include="Model\ObjectCare.cs" />
+    <Compile Include="Model\ObjectCareDetail.cs" />
+    <Compile Include="Model\Product.cs" />
+    <Compile Include="Model\ProductView.cs" />
+    <Compile Include="Model\Service.cs" />
+    <Compile Include="Model\ServiceDetail.cs" />
+    <Compile Include="Model\ServiceGroup.cs" />
+    <Compile Include="Model\ServiceView.cs" />
+    <Compile Include="Model\SQLServer.cs" />
+    <Compile Include="Model\UserView.cs" />
+    <Compile Include="pgCustomerCreditLimit.xaml.cs">
+      <DependentUpon>pgCustomerCreditLimit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pgInventoryCheck.xaml.cs">
+      <DependentUpon>pgInventoryCheck.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pgInventoryExchange.xaml.cs">
+      <DependentUpon>pgInventoryExchange.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pgIOR_2.xaml.cs">
+      <DependentUpon>pgIOR_2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pgIOR_1.xaml.cs">
+      <DependentUpon>pgIOR_1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pgIOR.xaml.cs">
+      <DependentUpon>pgIOR.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pgObjectCareDating.xaml.cs">
+      <DependentUpon>pgObjectCareDating.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pgObjectCarePayment.xaml.cs">
+      <DependentUpon>pgObjectCarePayment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pgInventoryInput.xaml.cs">
+      <DependentUpon>pgInventoryInput.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pgInventoryAvailable.xaml.cs">
+      <DependentUpon>pgInventoryAvailable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pgObjectCareManagement.xaml.cs">
+      <DependentUpon>pgObjectCareManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pgProductPurchaseManagement.xaml.cs">
+      <DependentUpon>pgProductPurchaseManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pgProductPurchaseReport.xaml.cs">
+      <DependentUpon>pgProductPurchaseReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pgProductInventoryOutput.xaml.cs">
+      <DependentUpon>pgProductInventoryOutput.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pgProductSaleReport.xaml.cs">
+      <DependentUpon>pgProductSaleReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pgProductSaleManagement.xaml.cs">
+      <DependentUpon>pgProductSaleManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pgProductSale.xaml.cs">
+      <DependentUpon>pgProductSale.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pgProductPurchase.xaml.cs">
+      <DependentUpon>pgProductPurchase.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pgStaff.xaml.cs">
+      <DependentUpon>pgStaff.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pgCustomer.xaml.cs">
+      <DependentUpon>pgCustomer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pgObjectCareSale.xaml.cs">
+      <DependentUpon>pgObjectCareSale.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pgProduct.xaml.cs">
+      <DependentUpon>pgProduct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pgProvinceDistrictWard.xaml.cs">
+      <DependentUpon>pgProvinceDistrictWard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pgService.xaml.cs">
+      <DependentUpon>pgService.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pgServiceDetail.xaml.cs">
+      <DependentUpon>pgServiceDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pgServiceGroup.xaml.cs">
+      <DependentUpon>pgServiceGroup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pgObjectCareOrder.xaml.cs">
+      <DependentUpon>pgObjectCareOrder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pgManufacture.xaml.cs">
+      <DependentUpon>pgManufacture.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pgVendor.xaml.cs">
+      <DependentUpon>pgVendor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Printing\frmPrintLabel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Printing\frmPrintLabel.Designer.cs">
+      <DependentUpon>frmPrintLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Printing\frmPrintReceipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Printing\frmPrintReceipt.Designer.cs">
+      <DependentUpon>frmPrintReceipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Printing\frmPrintReceipt1.xaml.cs">
+      <DependentUpon>frmPrintReceipt1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Report\frmIORReportCall.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\frmIORReportCall.Designer.cs">
+      <DependentUpon>frmIORReportCall.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\frmPurchaseReportCall.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\frmPurchaseReportCall.Designer.cs">
+      <DependentUpon>frmPurchaseReportCall.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\frmIORReportViewWPFy.xaml.cs">
+      <DependentUpon>frmIORReportViewWPFy.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Report\frmPurchaseReportViewWPF.xaml.cs">
+      <DependentUpon>frmPurchaseReportViewWPF.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Report\frmSaleReportCall.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\frmSaleReportCall.Designer.cs">
+      <DependentUpon>frmSaleReportCall.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\pgIORReport.xaml.cs" />
+    <Compile Include="Report\pgSaleAndReturnReport.xaml.cs" />
+    <Compile Include="SmallERPDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SmallERPDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SmallERPDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SmallERPDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ClosableHeader.xaml.cs">
+      <DependentUpon>ClosableHeader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ClosableTab.cs" />
+    <Compile Include="UserControls\FlexDatePicker.xaml.cs">
+      <DependentUpon>FlexDatePicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FlexDateTimePicker.cs" />
+    <Compile Include="View\frmAddPurchase.xaml.cs">
+      <DependentUpon>frmAddPurchase.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmAddQuantityOfLabel.xaml.cs">
+      <DependentUpon>frmAddQuantityOfLabel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmAddSale.xaml.cs">
+      <DependentUpon>frmAddSale.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmAddProductKindColor.xaml.cs">
+      <DependentUpon>frmAddProductKindColor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmAbout.xaml.cs">
+      <DependentUpon>frmAbout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmProductPurchasePayment.xaml.cs">
+      <DependentUpon>frmProductPurchasePayment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmInventoryExchange.xaml.cs">
+      <DependentUpon>frmInventoryExchange.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmProductSalePayment.xaml.cs">
+      <DependentUpon>frmProductSalePayment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmProductSalePrintInvoice.xaml.cs">
+      <DependentUpon>frmProductSalePrintInvoice.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmPurchaseExcelInput.xaml.cs">
+      <DependentUpon>frmPurchaseExcelInput.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmStorageLocation.xaml.cs">
+      <DependentUpon>frmStorageLocation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmInventoryStorage.xaml.cs">
+      <DependentUpon>frmInventoryStorage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmObjectCare.xaml.cs">
+      <DependentUpon>frmObjectCare.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmCustomerPayment.xaml.cs">
+      <DependentUpon>frmCustomerPayment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmProduct1.xaml.cs">
+      <DependentUpon>frmProduct1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmProductColor.xaml.cs">
+      <DependentUpon>frmProductColor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmProductSize.xaml.cs">
+      <DependentUpon>frmProductSize.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmProductKind.xaml.cs">
+      <DependentUpon>frmProductKind.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmUnit.xaml.cs">
+      <DependentUpon>frmUnit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmProductSale.xaml.cs">
+      <DependentUpon>frmProductSale.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmProductPurchase.xaml.cs">
+      <DependentUpon>frmProductPurchase.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmObjectCareDetail.xaml.cs">
+      <DependentUpon>frmObjectCareDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmObjectCarePayment.xaml.cs">
+      <DependentUpon>frmObjectCarePayment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmManufacture.xaml.cs">
+      <DependentUpon>frmManufacture.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmProductGroup.xaml.cs">
+      <DependentUpon>frmProductGroup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmServiceDetailWork.xaml.cs">
+      <DependentUpon>frmServiceDetailWork.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmUser.xaml.cs">
+      <DependentUpon>frmUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmVendor.xaml.cs">
+      <DependentUpon>frmVendor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmStaff.xaml.cs">
+      <DependentUpon>frmStaff.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmCustomer.xaml.cs">
+      <DependentUpon>frmCustomer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmLabor.xaml.cs">
+      <DependentUpon>frmLabor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmLogin.xaml.cs">
+      <DependentUpon>frmLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmProduct.xaml.cs">
+      <DependentUpon>frmProduct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmProvinceDistrictWard.xaml.cs">
+      <DependentUpon>frmProvinceDistrictWard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmService.xaml.cs">
+      <DependentUpon>frmService.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmServiceDetail.xaml.cs">
+      <DependentUpon>frmServiceDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmServiceGroup.xaml.cs">
+      <DependentUpon>frmServiceGroup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmSQLServer.xaml.cs">
+      <DependentUpon>frmSQLServer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MyProgressBar.xaml.cs">
+      <DependentUpon>MyProgressBar.xaml</DependentUpon>
+    </Compile>
+    <Page Include="ImagesSystem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Model\Customer.cs" />
+    <Compile Include="Model\Employee.cs" />
+    <Compile Include="Model\EndUser.cs" />
+    <Compile Include="Model\Inventory.cs" />
+    <Compile Include="Model\LoginSession.cs" />
+    <Compile Include="Model\Manufacture.cs" />
+    <Compile Include="Model\Pharma.cs" />
+    <Compile Include="Model\ProductGroup.cs" />
+    <Compile Include="Model\PharmaHelp.cs" />
+    <Compile Include="Model\PharmaInventory.cs" />
+    <Compile Include="Model\PharmaInventoryTmp.cs" />
+    <Compile Include="Model\Privilege.cs" />
+    <Compile Include="Model\PrivilegeObject.cs" />
+    <Compile Include="Model\PurchaseOrder.cs" />
+    <Compile Include="Model\PurchaseOrderDetail.cs" />
+    <Compile Include="Model\PurchaseType.cs" />
+    <Compile Include="Model\SaleOrder.cs" />
+    <Compile Include="Model\SaleOrderDetail.cs" />
+    <Compile Include="Model\Unit.cs" />
+    <Compile Include="Model\User.cs" />
+    <Compile Include="Model\Vendor.cs" />
+    <Compile Include="DBHelper\SqlDataConnection.cs" />
+    <Compile Include="Favorite\EnDecrypt.cs" />
+    <Compile Include="Favorite\FileIO.cs" />
+    <Compile Include="Favorite\UString.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="pgCustomerCreditLimit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pgInventoryCheck.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pgInventoryExchange.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pgIOR_2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pgIOR_1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pgIOR.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pgObjectCareDating.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pgObjectCarePayment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pgInventoryInput.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pgInventoryAvailable.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pgObjectCareManagement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pgProductPurchaseManagement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pgProductPurchaseReport.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pgProductInventoryOutput.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pgProductSaleReport.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pgProductSaleManagement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pgProductSale.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pgProductPurchase.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pgStaff.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pgCustomer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pgObjectCareSale.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pgProduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pgProvinceDistrictWard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pgService.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pgServiceDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pgServiceGroup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pgObjectCareOrder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pgManufacture.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="pgVendor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Printing\frmPrintReceipt1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Report\frmIORReportViewWPFy.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Report\frmPurchaseReportViewWPF.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Report\pgIORReport.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Report\pgSaleAndReturnReport.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\ClosableHeader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\FlexDatePicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\frmAddPurchase.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\frmAddQuantityOfLabel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\frmAddSale.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\frmAddProductKindColor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\frmAbout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\frmProductPurchasePayment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\frmInventoryExchange.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\frmProductSalePayment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\frmProductSalePrintInvoice.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\frmPurchaseExcelInput.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\frmStorageLocation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\frmInventoryStorage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\frmObjectCare.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\frmCustomerPayment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\frmProduct1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\frmProductColor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\frmProductSize.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\frmProductKind.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\frmUnit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\frmProductSale.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\frmProductPurchase.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\frmObjectCareDetail.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\frmObjectCarePayment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\frmManufacture.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\frmProductGroup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\frmServiceDetailWork.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\frmUser.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\frmVendor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\frmStaff.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\frmCustomer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\frmLabor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\frmLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\frmProduct.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\frmProvinceDistrictWard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\frmService.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\frmServiceDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\frmServiceGroup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\frmSQLServer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MyProgressBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="IMS_Report.dbml.layout">
+      <DependentUpon>IMS_Report.dbml</DependentUpon>
+    </None>
+    <EmbeddedResource Include="Report\frmIORReportCall.resx">
+      <DependentUpon>frmIORReportCall.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\rptIOR.rdlc" />
+    <EmbeddedResource Include="Report\rptSaleAndReturn.rdlc" />
+    <EmbeddedResource Include="rptPurchase.rdlc" />
+    <None Include="DataSource_ProductPurchaseItemView.xsc">
+      <DependentUpon>DataSource_ProductPurchaseItemView.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource_ProductPurchaseItemView.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSource_ProductPurchaseItemView.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource_ProductPurchaseItemView.xss">
+      <DependentUpon>DataSource_ProductPurchaseItemView.xsd</DependentUpon>
+    </None>
+    <None Include="IMS_Report.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>IMS_Report.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="IMS_Table.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>IMS_Table.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="IMS_Proc.dbml.layout">
+      <DependentUpon>IMS_Proc.dbml</DependentUpon>
+    </None>
+    <None Include="IMS_View.dbml.layout">
+      <DependentUpon>IMS_View.dbml</DependentUpon>
+    </None>
+    <None Include="IMS_Table.dbml.layout">
+      <DependentUpon>IMS_Table.dbml</DependentUpon>
+    </None>
+    <EmbeddedResource Include="frmCustomerCredit.resx">
+      <DependentUpon>frmCustomerCredit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Printing\frmPrintLabel.resx">
+      <DependentUpon>frmPrintLabel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Printing\frmPrintReceipt.resx">
+      <DependentUpon>frmPrintReceipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Printing\Report1.rdlc" />
+    <EmbeddedResource Include="Printing\rptLabel.rdlc" />
+    <EmbeddedResource Include="Printing\Report3.rdlc" />
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Report\frmPurchaseReportCall.resx">
+      <DependentUpon>frmPurchaseReportCall.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\frmSaleReportCall.resx">
+      <DependentUpon>frmSaleReportCall.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\rptPurchase.rdlc" />
+    <EmbeddedResource Include="Report\rptReceipt.rdlc" />
+    <None Include="CMS.dbml.layout">
+      <DependentUpon>CMS.dbml</DependentUpon>
+    </None>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="CMS.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>CMS.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DsBarcode.xsc">
+      <DependentUpon>DsBarcode.xsd</DependentUpon>
+    </None>
+    <None Include="DsBarcode.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsBarcode.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DsBarcode.xss">
+      <DependentUpon>DsBarcode.xsd</DependentUpon>
+    </None>
+    <None Include="DsInventoryInput.xsc">
+      <DependentUpon>DsInventoryInput.xsd</DependentUpon>
+    </None>
+    <None Include="DsInventoryInput.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsInventoryInput.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DsInventoryInput.xss">
+      <DependentUpon>DsInventoryInput.xsd</DependentUpon>
+    </None>
+    <None Include="IMS_Proc.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>IMS_Proc.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="IMS_View.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>IMS_View.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <None Include="SmallERPDataSet.xsc">
+      <DependentUpon>SmallERPDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SmallERPDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SmallERPDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SmallERPDataSet.xss">
+      <DependentUpon>SmallERPDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SmallERPDataSet1.xsc">
+      <DependentUpon>SmallERPDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="SmallERPDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SmallERPDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SmallERPDataSet1.xss">
+      <DependentUpon>SmallERPDataSet1.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Assets\addnew.jpg" />
+    <Resource Include="Assets\Address.png" />
+    <Resource Include="Assets\Address_.png" />
+    <Resource Include="Assets\adjust.png" />
+    <Resource Include="Assets\Backup1.png" />
+    <Resource Include="Assets\barcode.png" />
+    <Resource Include="Assets\barcode_po.png" />
+    <Resource Include="Assets\BColor.png" />
+    <Resource Include="Assets\Bold.png" />
+    <Resource Include="Assets\BoldLight.png" />
+    <Resource Include="Assets\brand.png" />
+    <Resource Include="Assets\brand_.png" />
+    <Resource Include="Assets\BuyPart.png" />
+    <Resource Include="Assets\BuyReport.png" />
+    <Resource Include="Assets\cancel.jpg" />
+    <Resource Include="Assets\Config.png" />
+    <Resource Include="Assets\congno.jpg" />
+    <Resource Include="Assets\Copy.png" />
+    <Resource Include="Assets\Customer.png" />
+    <Resource Include="Assets\Cut.png" />
+    <Resource Include="Assets\dating.png" />
+    <Resource Include="Assets\detalshop.png" />
+    <Resource Include="Assets\down.png" />
+    <Resource Include="Assets\duplicate.png" />
+    <Resource Include="Assets\equipmentpurchase.png" />
+    <Resource Include="Assets\Exit.png" />
+    <Resource Include="Assets\favorite.png" />
+    <Resource Include="Assets\FColor.png" />
+    <Resource Include="Assets\Font.png" />
+    <Resource Include="Assets\FontLight.png" />
+    <Resource Include="Assets\glasses.png" />
+    <Resource Include="Assets\goods.png" />
+    <Resource Include="Assets\Help.png" />
+    <Resource Include="Assets\home.png" />
+    <Resource Include="Assets\images.jpg" />
+    <Resource Include="Assets\Info.png" />
+    <Resource Include="Assets\inorge.jpg" />
+    <Resource Include="Assets\inventory_remain.jpg" />
+    <Resource Include="Assets\InvRequestIn.png" />
+    <Resource Include="Assets\InvRequestOut.png" />
+    <Resource Include="Assets\Italic.png" />
+    <Resource Include="Assets\ItalicLight.png" />
+    <Resource Include="Assets\keys.jpg" />
+    <Resource Include="Assets\keys.png" />
+    <Resource Include="Assets\key_.png" />
+    <Resource Include="Assets\Labo.png" />
+    <Resource Include="Assets\left.png" />
+    <Resource Include="Assets\list.png" />
+    <Resource Include="Assets\ListBranch.png" />
+    <Resource Include="Assets\ListCustomer.png" />
+    <Resource Include="Assets\ListManufacture.png" />
+    <Resource Include="Assets\ListProduct.ico" />
+    <Resource Include="Assets\ListProduct.png" />
+    <Resource Include="Assets\login.jpg" />
+    <Resource Include="Assets\login.png" />
+    <Resource Include="Assets\logout.jpg" />
+    <Resource Include="Assets\Logout.png" />
+    <Resource Include="Assets\menu_bg.jpg" />
+    <Resource Include="Assets\objectcaring.png" />
+    <Resource Include="Assets\Paste.png" />
+    <Resource Include="Assets\patiencefile.png" />
+    <Resource Include="Assets\patientfile.jpg" />
+    <Resource Include="Assets\person.png" />
+    <Resource Include="Assets\Pharmacy.ico" />
+    <Resource Include="Assets\preview.png" />
+    <Resource Include="Assets\printer.png" />
+    <Resource Include="Assets\printer_.png" />
+    <Resource Include="Assets\Product.ico" />
+    <Resource Include="Assets\productpurchase.png" />
+    <Resource Include="Assets\productsale.png" />
+    <Resource Include="Assets\profit.jpg" />
+    <Resource Include="Assets\Redo.png" />
+    <Resource Include="Assets\Restore.png" />
+    <Resource Include="Assets\ReviewSell.png" />
+    <Resource Include="Assets\ReviiewBuy.png" />
+    <Resource Include="Assets\right.png" />
+    <Resource Include="Assets\saleorder.jpg" />
+    <Resource Include="Assets\SalesReport.png" />
+    <Resource Include="Assets\save1.jpg" />
+    <Resource Include="Assets\search.png" />
+    <Resource Include="Assets\Security.png" />
+    <Resource Include="Assets\SellPart.png" />
+    <Resource Include="Assets\server.png" />
+    <Resource Include="Assets\server_.png" />
+    <Resource Include="Assets\service.png" />
+    <Resource Include="Assets\servicegroup.png" />
+    <Resource Include="Assets\Size.png" />
+    <Resource Include="Assets\SizeLight.png" />
+    <Resource Include="Assets\staff.jpg" />
+    <Resource Include="Assets\Staff.png" />
+    <Resource Include="Assets\stages.png" />
+    <Resource Include="Assets\StorageReport.png" />
+    <Resource Include="Assets\Store.png" />
+    <Resource Include="Assets\Support.png" />
+    <Resource Include="Assets\thuchi.png" />
+    <Resource Include="Assets\thuoc.jpg" />
+    <Resource Include="Assets\thuoc.png" />
+    <Resource Include="Assets\Undo.png" />
+    <Resource Include="Assets\unit.png" />
+    <Resource Include="Assets\up.png" />
+    <Resource Include="Assets\Users.png" />
+    <Resource Include="Assets\users_.png" />
+    <Resource Include="Assets\Vendor.png" />
+    <Resource Include="Assets\watchout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\InvIn.jpg" />
+    <Resource Include="Assets\InvOut.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\tgmv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\CustomerCredit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\VendorDebit.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\salarytable.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\ReturnProduct.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\GetBackProduct.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\thu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\chi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\inventoryIn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\inventoryOut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addfile_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Edit\Delete_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Print\Preview_16x16.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

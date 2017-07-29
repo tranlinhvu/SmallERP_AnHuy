@@ -1,0 +1,125 @@
+﻿<Page x:Class="IMS.pgManufacture"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:IMS"
+      mc:Ignorable="d" FontFamily="Times New Roman" 
+      d:DesignHeight="800" d:DesignWidth="1600"
+      Title="pgManufacture">
+
+    <!--Khai báo resource-->
+    <Page.Resources>
+        <Style x:Key="SelectedTextBoxStyle" TargetType="{x:Type TextBox}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsFocused}" Value="True">
+                    <Setter Property="FocusManager.FocusedElement" 
+                Value="{Binding RelativeSource={RelativeSource Self}}" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="_ListBoxItemStyle" TargetType="ListViewItem">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListViewItem">
+                        <Border x:Name="_Border" Background="Transparent">
+                            <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="true">
+                               <Setter TargetName="_Border" Property="Background" Value="LightBlue"/>
+                                <!--<Setter Property="HorizontalContentAlignment" Value="Stretch" />-->
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+    <!--Tạo 1 grid gồm 4 hàng: 0: Thanh công cụ, 1: Vùng nhập dữ liệu, 2: Vùng header cho listview bên dưới 3: Vùng Listview hiển thị dữ liệu-->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+         <ToolBar Name="toolBar" Grid.Row="0" Background="#A2D4B0">
+            <DockPanel Width="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType={x:Type ToolBarPanel}}}">
+                <DockPanel.Resources>
+                    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"></Style>
+                </DockPanel.Resources>
+
+                <Button Name="tbrAddManufacture" ToolTip="Thêm" VerticalAlignment="Bottom" Margin="0,0,15,0" Click="tbrAddManufacture_Click" >
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="18" Foreground="Maroon"/>
+                </Button>
+                <Button Name="tbrEditManufacture" ToolTip="Sửa chữa" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" Margin="0,0,35,0" Click="tbrEditManufacture_Click" >
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="18" Foreground="DarkGoldenrod"/>
+                </Button>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">                    
+                    <TextBlock Text="Tên nhà cung cấp" FontSize="16" Foreground="Maroon" VerticalAlignment="Bottom" Margin="5,0,0,0"/>
+                    <Button ToolTip="Nhập nhà cung cấp" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom">
+                        <TextBox Name="txtManufactureName" Text="" Width ="150" FontSize="16" Foreground="Maroon"/>
+                    </Button>
+                    <Button Name="tbrSearch" ToolTip="Tìm kiếm" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" Click="tbrSearch_Click" >
+                        <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="18" Foreground="Maroon"/>
+                    </Button>
+                    <Separator BorderThickness="2" Foreground="#9FB6A6" Height="28" Margin="0,2,0,0" VerticalAlignment="Top"/>
+                    <Button Name="tbrRefresh" ToolTip="Làm mới" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" Click="tbrRefresh_Click" >
+                        <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="18" Foreground="DarkGreen"/>
+                    </Button>
+                </StackPanel>
+            </DockPanel>
+        </ToolBar>
+
+        <Grid Grid.Row="1" Margin="0,2,0,0" Background="SeaGreen">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="250" />
+                <ColumnDefinition Width="250" />
+                <ColumnDefinition Width="350" />
+                <ColumnDefinition Width="200" />               
+                <ColumnDefinition Width="150" />                
+            </Grid.ColumnDefinitions>
+            <TextBlock Foreground="LightGoldenrodYellow" Text="Id" Visibility="Collapsed" FontSize="15" FontWeight="Normal" Grid.Column="0" Grid.Row="0" Margin="15,5,5,0" />
+            <TextBlock Foreground="LightGoldenrodYellow" Text="STT" FontSize="15" FontWeight="Normal" Grid.Column="1" Grid.Row="0" Margin="15,5,5,0" />
+            <TextBlock Foreground="LightGoldenrodYellow" Text="Tên nhà cung cấp" FontSize="15" FontWeight="Normal" Grid.Column="2" Grid.Row="0" Margin="15,5,5,0" />
+            <TextBlock Foreground="LightGoldenrodYellow" Text="Mã nhà cung cấp" FontSize="15" FontWeight="Normal" Grid.Column="3" Grid.Row="0" Margin="15,5,5,0" />
+            <TextBlock Foreground="LightGoldenrodYellow" Text="Địa chỉ" FontSize="15" FontWeight="Normal" Grid.Column="4" Grid.Row="0" Margin="15,5,5,0" />
+            <TextBlock Foreground="LightGoldenrodYellow" Text="Email" FontSize="15" FontWeight="Normal" Grid.Column="5" Grid.Row="0" Margin="15,5,5,0" />
+            <TextBlock Foreground="LightGoldenrodYellow" Text="Điện thoại" FontSize="15" FontWeight="Normal" Grid.Column="6" Grid.Row="0" Margin="15,5,5,0" />
+        </Grid>
+
+        <ListView Name="lsViewManufacture" Grid.Row="2" ItemsSource="{Binding Service}"  AlternationCount="2" ItemContainerStyle="{DynamicResource _ListBoxItemStyle}" BorderThickness="1" SelectedIndex="0" SelectionChanged="lsViewManufacture_SelectionChanged_1" MouseDoubleClick="lsViewManufacture_MouseDoubleClick_1" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="50" />
+                            <ColumnDefinition Width="250" />
+                            <ColumnDefinition Width="250" />
+                            <ColumnDefinition Width="350" />
+                            <ColumnDefinition Width="200" />
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0"  Grid.Row="1" Visibility="Collapsed" Margin="15,5,0,0" Foreground="Maroon" VerticalAlignment="Bottom" HorizontalAlignment="Left" TextAlignment="Left" FontSize = "15" Text="{Binding Id}" />
+                        <TextBlock Grid.Column="1"  Grid.Row="1" Margin="15,5,0,0" Foreground="Maroon" VerticalAlignment="Bottom" HorizontalAlignment="Left" TextAlignment="Right" FontSize = "15" Text="{Binding RowNumber}" />
+                        <TextBlock Grid.Column="2"  Grid.Row="1" Margin="15,5,0,0" FontWeight="Normal" Foreground="Maroon" VerticalAlignment="Bottom" HorizontalAlignment="Left" TextAlignment="Left" FontSize = "15" Text="{Binding Name}"/>
+                        <TextBlock Grid.Column="3"  Grid.Row="1" Margin="15,5,0,0" FontWeight="Normal" Foreground="Maroon" VerticalAlignment="Bottom" HorizontalAlignment="Left" TextAlignment="Left" FontSize = "15" Text="{Binding Code}"/>
+                        <TextBlock Grid.Column="4"  Grid.Row="1" Margin="15,5,0,0" FontWeight="Normal" Foreground="Maroon" VerticalAlignment="Bottom" HorizontalAlignment="Left" TextAlignment="Left" FontSize = "15" Text="{Binding Address}"/>
+                        <TextBlock Grid.Column="5"  Grid.Row="1" Margin="15,5,0,0" FontWeight="Normal" Foreground="Maroon" VerticalAlignment="Bottom" HorizontalAlignment="Left" TextAlignment="Left" FontSize = "15" Text="{Binding Email}"/>
+                        <TextBlock Grid.Column="6"  Grid.Row="1" Margin="15,5,0,0" FontWeight="Normal" Foreground="Maroon" VerticalAlignment="Bottom" HorizontalAlignment="Left" TextAlignment="Left" FontSize = "15" Text="{Binding Phone}"/>
+                        <Button Grid.Column="7" Grid.Row="1" Name="btnRemoveManufacture" Background="Transparent" BorderThickness="0"  HorizontalAlignment="Right"  Margin="15,5,10,0" Foreground="DarkRed" VerticalAlignment="Bottom" FontSize = "15" FontFamily="Segoe MDL2 Assets" Content="" Click="btnRemoveManufacture_Click" />
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>

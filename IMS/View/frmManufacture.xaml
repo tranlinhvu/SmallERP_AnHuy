@@ -1,0 +1,47 @@
+﻿<Window x:Class="IMS.View.frmManufacture"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IMS.View" ResizeMode="CanMinimize" Background="SeaGreen"
+       Title="IMS - Nhà sản xuất" Height="350" Width="680">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="60" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="7*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.15*" />               
+                <RowDefinition Height="0.15*" />
+                <RowDefinition Height="0.15*" />
+                <RowDefinition Height="0.15*" />                
+                <RowDefinition Height="0.15*" />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Column="0" Foreground="LightGoldenrodYellow" Grid.Row="0" Text="Tên nhà cung cấp (*):" HorizontalAlignment="Left" FontSize="18" VerticalAlignment="Bottom" Margin="0,0,0,0"/>
+            <TextBox Name="txtName" Foreground="Maroon" Grid.Column="1" Grid.Row="0" Margin="0,15,0,0" FontSize="18" VerticalContentAlignment="Bottom"/>
+            <TextBlock Grid.Column="0" Foreground="LightGoldenrodYellow" Grid.Row="1" Text="Mã nhà cung cấp (*):" HorizontalAlignment="Left" FontSize="18" VerticalAlignment="Bottom" Margin="0,0,0,0"/>
+            <TextBox Name="txtCode" Foreground="Maroon" Grid.Column="1" Grid.Row="1" Margin="0,15,0,0" FontSize="18" VerticalContentAlignment="Bottom"/>
+            <TextBlock Grid.Column="0" Foreground="LightGoldenrodYellow" Grid.Row="2" Text="Địa chỉ:" HorizontalAlignment="Left" FontSize="18" VerticalAlignment="Bottom" Margin="0,0,0,0"/>
+            <TextBox Name="txtStreetNumber" Foreground="Maroon" Grid.Column="1" Grid.Row="2" Margin="0,15,0,0" FontSize="18" VerticalContentAlignment="Bottom"/>
+            <TextBlock Grid.Column="0" Foreground="LightGoldenrodYellow" Grid.Row="3" Text="Email:" HorizontalAlignment="Left" FontSize="18" VerticalAlignment="Bottom" Margin="0,0,0,0"/>
+            <TextBox Name="txtEmail" Foreground="Maroon" Grid.Column="1" Grid.Row="3"  FontSize="18" Margin="0,15,0,0" VerticalContentAlignment="Bottom"/>
+            <TextBlock Grid.Column="0" Foreground="LightGoldenrodYellow" Grid.Row="4" Text="Điện thọai:" HorizontalAlignment="Left" FontSize="18" VerticalAlignment="Bottom" Margin="0,0,0,0"/>
+            <TextBox Name="txtPhone" Foreground="Maroon" Grid.Column="1" Grid.Row="4"  FontSize="18" Margin="0,15,0,0" VerticalContentAlignment="Bottom"/>
+        </Grid>
+
+        <Grid Grid.Row="1" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="80" />
+            </Grid.ColumnDefinitions>
+            <Button Name="btnSave" Foreground="Maroon" FontWeight="Bold" Grid.Column="0" Content="Lưu (F2)" Width ="90" HorizontalAlignment="Right" Margin="0,0,15,0" Click="btnSave_Click" ></Button>
+            <Button Name="btnCancel" Foreground="Maroon" FontWeight="Bold" Grid.Column ="1" Content="Hủy" Width ="90" HorizontalAlignment="Right" Click="btnCancel_Click" ></Button>
+        </Grid>
+    </Grid>
+</Window>

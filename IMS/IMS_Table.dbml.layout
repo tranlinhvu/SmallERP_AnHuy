@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="IMSTable">
+  <DataContextMoniker Name="/IMS_TableDataContext" />
+  <nestedChildShapes>
+    <classShape Id="9a2dcf91-bf7d-41c3-834d-4d67b4d363f7" absoluteBounds="2.75, 0.625, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/IMS_TableDataContext/InventoryStorage1" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d2fab3c7-38a3-4305-ab0f-f7e0736d66fd" absoluteBounds="2.7649999999999997, 1.085, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4995decd-19c1-4c3d-8a05-335395588f86" absoluteBounds="0.5, 0.625, 2, 4.2708154296875">
+      <DataClassMoniker Name="/IMS_TableDataContext/ProductSale1" />
+      <nestedChildShapes>
+        <elementListCompartment Id="14a07e8c-71a1-4e48-930d-96a4845144c9" absoluteBounds="0.51499999999999968, 1.085, 1.9700000000000002, 3.7108154296875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f693ecf5-1a63-4507-b8dc-e4d7c6277503" absoluteBounds="2.75, 2.625, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/IMS_TableDataContext/BOM" />
+      <nestedChildShapes>
+        <elementListCompartment Id="87105a65-6187-4237-99dd-c64977869706" absoluteBounds="2.765, 3.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="eea7142c-76ea-41d1-9959-d85d71ba85c4" absoluteBounds="5, 0.625, 2, 2.5401025390625">
+      <DataClassMoniker Name="/IMS_TableDataContext/View_BOM_Extract" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7e0d9c5e-3f83-4a5f-b820-005bc9b919ed" absoluteBounds="5.015, 1.085, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5370441d-88a7-4b79-b9b0-576c1f16aed0" absoluteBounds="0.75, 5.625, 2, 2.5401025390625">
+      <DataClassMoniker Name="/IMS_TableDataContext/View_BOM_No_Extract" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bd88c1a1-ca89-41e5-a6f7-52200ad43215" absoluteBounds="0.76499999999999968, 6.085, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4f03dd7d-7dd7-4682-8c8b-d0f7545f115b" absoluteBounds="5.375, 3.5, 2, 3.8862125651041666">
+      <DataClassMoniker Name="/IMS_TableDataContext/ProductPurchase1" />
+      <nestedChildShapes>
+        <elementListCompartment Id="46af1816-205c-465e-8670-14eb5e800d0c" absoluteBounds="5.39, 3.96, 1.9700000000000002, 3.3262125651041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0872dd4e-2233-484a-90f4-0ecfcd186a87" absoluteBounds="3.125, 4.875, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/IMS_TableDataContext/ProductKind" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b89be348-08a3-4748-8386-416f5d63ad89" absoluteBounds="3.1399999999999997, 5.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

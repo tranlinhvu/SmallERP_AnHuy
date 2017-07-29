@@ -1,0 +1,143 @@
+﻿<Page x:Class="IMS.pgInventoryAvailable"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:IMS"
+      mc:Ignorable="d" FontFamily="Times New Roman" 
+      d:DesignHeight="600" d:DesignWidth="1500"
+      Title="pgServiceGroup">
+
+    <!--Khai báo resource-->
+    <Page.Resources>
+        <Style x:Key="SelectedTextBoxStyle" TargetType="{x:Type TextBox}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsFocused}" Value="True">
+                    <Setter Property="FocusManager.FocusedElement" 
+                Value="{Binding RelativeSource={RelativeSource Self}}" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="_ListBoxItemStyle" TargetType="ListViewItem">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListViewItem">
+                        <Border x:Name="_Border" Background="Transparent">
+                            <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="true">
+                                <Setter TargetName="_Border" Property="Background" Value="LightBlue"/>
+                                <!--<Setter Property="HorizontalContentAlignment" Value="Stretch" />-->
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+    <!--Tạo 1 grid gồm 4 hàng: 0: Thanh công cụ, 1: Vùng nhập dữ liệu, 2: Vùng header cho listview bên dưới 3: Vùng Listview hiển thị dữ liệu-->
+    <Grid Name="grdProduct">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />            
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <ToolBar Name="toolBar" Grid.Row="0" Background="#A2D4B0">
+            <DockPanel Width="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType={x:Type ToolBarPanel}}}">
+                <DockPanel.Resources>
+                    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"></Style>
+                </DockPanel.Resources>
+                <TextBlock Text="Danh sách hàng tồn kho" FontSize="18" VerticalAlignment="Bottom" Foreground="Maroon" FontWeight="Bold"/>                           
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <TextBlock Text="Loại hàng" FontSize="15" Foreground="Maroon" VerticalAlignment="Bottom" Margin="20,0,0,0" FontWeight="Normal"/>
+                    <ComboBox Name="cmbProductKind" FontSize="15" Foreground="Maroon" VerticalAlignment="Bottom" Margin="5,0,10,0" Width="150" FontWeight="Normal" SelectionChanged="cmbProductKind_SelectionChanged"/>
+                    <TextBlock Text="Màu sắc" FontSize="15" Foreground="Maroon" VerticalAlignment="Bottom" Margin="20,0,0,0" FontWeight="Normal"/>
+                    <ComboBox Name="cmbProductColor" FontSize="15" Foreground="Maroon" VerticalAlignment="Bottom" Margin="5,0,10,0" Width="150" FontWeight="Normal"/>
+
+                    <Button Name="tbrSearch" ToolTip="Tìm kiếm" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" HorizontalAlignment="Right" Click="tbrSearch_Click" >
+                        <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="18" Foreground="Maroon" FontWeight="Normal"/>
+                    </Button>
+                    <Button Name="tbrRefresh" ToolTip="Làm mới" VerticalAlignment="Bottom" VerticalContentAlignment="Bottom" HorizontalAlignment="Right" Click="tbrRefresh_Click" >
+                        <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="18" FontWeight="Normal" Foreground="ForestGreen"/>
+                    </Button>
+                    
+                </StackPanel>
+            </DockPanel>
+        </ToolBar>
+
+        <Grid Grid.Row="1" Margin="0,2,0,0" Background="SeaGreen">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="80" />
+                <ColumnDefinition Width="180" />
+                <ColumnDefinition Width="150" />
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="80" />
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="160" />
+                <!--<ColumnDefinition Width="150" />-->
+                <ColumnDefinition Width ="150" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Id" Visibility="Collapsed" FontSize = "15" FontWeight="Normal" Grid.Column="0" Grid.Row="0" Margin="15,5,0,0" />
+            <TextBlock Text="STT" Foreground="LightGoldenrodYellow" FontSize = "15" FontWeight="Bold" Grid.Column="1" Grid.Row="0" Margin="15,5,0,0" />
+            <TextBlock Text="Mã hàng " Foreground="LightGoldenrodYellow" FontSize = "15" FontWeight="Bold" Grid.Column="2" Grid.Row="0" Margin="15,5,0,0" />
+            <TextBlock Text="Tên hàng" Foreground="LightGoldenrodYellow" FontSize = "15" FontWeight="Bold" Grid.Column="3" Grid.Row="0" Margin="15,5,0,0"/>
+            <TextBlock Text="Loại hàng " Foreground="LightGoldenrodYellow" FontSize = "15" FontWeight="Bold" Grid.Column="4" Grid.Row="0" Margin="15,5,0,0" />
+            <TextBlock Text="Màu sắc" Foreground="LightGoldenrodYellow" FontSize = "15" FontWeight="Bold" Grid.Column="5" Grid.Row="0" Margin="15,5,0,0"/>
+            <TextBlock Text="Mã barcode" Foreground="LightGoldenrodYellow" FontSize = "15" FontWeight="Bold" Grid.Column="6" Grid.Row="0" Margin="15,5,0,0"/>
+            <TextBlock Text="Đơn vị" Foreground="LightGoldenrodYellow" FontSize = "15" FontWeight="Bold" Grid.Column="7" Grid.Row="0" Margin="15,5,0,0"/>
+            <TextBlock Text="Giá nhập" Foreground="LightGoldenrodYellow" FontSize = "15" FontWeight="Bold" Grid.Column="8" Grid.Row="0" Margin="15,5,0,0" />
+            <!--<TextBlock Text="Ngày nhập" FontSize = "15" FontWeight="Bold" Grid.Column="9" Grid.Row="0" Margin="15,5,0,0"/>-->
+            <TextBlock Text="Chứng từ mua" Foreground="LightGoldenrodYellow" FontSize = "15" FontWeight="Bold" Grid.Column="9" Grid.Row="0" Margin="15,5,0,0"/>
+            <TextBlock Text="Kho chứa hàng" Foreground="LightGoldenrodYellow" FontSize = "15" FontWeight="Bold" Grid.Column="10" Grid.Row="0" Margin="15,5,0,0"/>
+        </Grid>
+
+        <ListView Name="myListView" Grid.Row="2" ItemsSource="{Binding ProductView}" ItemContainerStyle="{DynamicResource _ListBoxItemStyle}" BorderThickness="1" SelectedIndex="0">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="50" />
+                            <ColumnDefinition Width="80" />
+                            <ColumnDefinition Width="180" />
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="200" />
+                            <ColumnDefinition Width="80" />
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="160" />
+                            <!--<ColumnDefinition Width="150" />-->
+                            <ColumnDefinition Width ="150" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="80" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0"  Grid.Row="1" Visibility="Collapsed" Margin="15,5,0,0" FontWeight="Normal" Foreground="Maroon" VerticalAlignment="Bottom" HorizontalAlignment="Left" TextAlignment="Left" FontSize = "15" Text="{Binding Id}" />
+                        <TextBlock Grid.Column="1"  Grid.Row="1" Margin="15,5,0,0" FontWeight="Normal" Foreground="Maroon" VerticalAlignment="Bottom" HorizontalAlignment="Left" Visibility="Visible" TextAlignment="Right" FontSize = "15" Text="{Binding RowNumber}"/>
+                        <TextBlock Grid.Column="2"  Grid.Row="1" Margin="15,5,0,0" FontWeight="Normal" Foreground="Maroon" VerticalAlignment="Bottom" HorizontalAlignment="Left" Visibility="Visible" TextAlignment="Left" FontSize = "15" Text="{Binding Code}"/>
+                        <TextBlock Grid.Column="3"  Grid.Row="1" Margin="15,5,0,0" FontWeight="Normal" Foreground="Maroon" VerticalAlignment="Bottom" HorizontalAlignment="Left" Visibility="Visible" TextAlignment="Left" FontSize = "15" Text="{Binding Name}"/>
+                        <TextBlock Grid.Column="4"  Grid.Row="1" Margin="15,5,0,0" FontWeight="Normal" Foreground="Maroon" VerticalAlignment="Bottom" HorizontalAlignment="Left" Visibility="Visible" TextAlignment="Left" FontSize = "15" Text="{Binding ProductKindName}"/>
+                        <TextBlock Grid.Column="5"  Grid.Row="1" Margin="15,5,0,0" FontWeight="Normal" Foreground="Maroon" VerticalAlignment="Bottom" HorizontalAlignment="Left" Visibility="Visible" TextAlignment="Left" FontSize = "15" Text="{Binding ProductColorName}"/>
+                        <TextBox Grid.Column="6" Width="160" Grid.Row="1" Margin="15,5,0,0" FontWeight="Normal" Foreground="Maroon" VerticalAlignment="Bottom" HorizontalAlignment="Left" Visibility="Visible" TextAlignment="Left" FontSize = "15" Text="{Binding CodeEx}"/>
+                        <TextBlock Grid.Column="7"  Grid.Row="1" Margin="15,5,0,0" FontWeight="Normal" Foreground="Maroon" VerticalAlignment="Bottom" HorizontalAlignment="Left" Visibility="Visible" TextAlignment="Left" FontSize = "15" Text="{Binding UnitName}" />
+                        <TextBlock Grid.Column="8"  Grid.Row="1" Margin="15,5,0,0" FontWeight="Normal" Foreground="Maroon" VerticalAlignment="Bottom" HorizontalAlignment="Left" Visibility="Visible" TextAlignment="Left" FontSize = "15" Text="{Binding PriceIn, ConverterCulture='vi-VN', StringFormat ='{}{0:N0}'}"/>
+                        <!--<TextBlock Grid.Column="9"  Grid.Row="1" Margin="15,5,0,0" FontWeight="Normal" Foreground="Maroon" VerticalAlignment="Bottom" HorizontalAlignment="Left" Visibility="Visible" TextAlignment="Left" FontSize = "15" Text="{Binding CreatedDateEx}"/>-->
+                        <TextBlock Grid.Column="9"  Grid.Row="1" Margin="15,5,0,0" FontWeight="Normal" Foreground="Maroon" VerticalAlignment="Bottom" HorizontalAlignment="Left" Visibility="Visible" TextAlignment="Left" FontSize = "15" Text="{Binding InvoiceNo}"/>
+                        <TextBlock Grid.Column="10"  Grid.Row="1" Margin="15,5,0,0" FontWeight="Normal" Foreground="Maroon" VerticalAlignment="Bottom" HorizontalAlignment="Left" Visibility="Visible" TextAlignment="Left" FontSize = "15" Text="{Binding StorageName}"/>
+                        <Button x:Name="btnSaveEdit" Background="Transparent" BorderThickness="0" Grid.Column="11" HorizontalAlignment="Right" Grid.Row="1" Margin="15,5,10,0" Foreground="DarkBlue" VerticalAlignment="Bottom" FontSize = "15" FontFamily="Segoe MDL2 Assets" Content="" Click="btnSaveEdit_Click" />
+                        <Button x:Name="btnPrintLable" Background="Transparent" BorderThickness="0" Grid.Column="12" HorizontalAlignment="Right" Grid.Row="1" Margin="15,5,10,0" Foreground="Chocolate" VerticalAlignment="Bottom" FontSize = "15" FontFamily="Segoe MDL2 Assets" Content="" Click="btnPrintLable_Click" />
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>        
+    </Grid>
+</Page>
